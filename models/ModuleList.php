@@ -11,12 +11,12 @@ class ModuleList {
   public $moduleList;
   protected $moodle;
 
-  public function __construct ( $user ) {
+  public function __construct ( $user, $moodle ) {
     
     $this->core = Core::getInstance();
 
     if (isset($_COOKIE['MoodleSession'])) {
-      $this->moodle = new MoodleQuery();
+      $this->moodle = $moodle;
     } else {
       echo '<p><em>Moodle session id <strong>not found</strong></em</p>';
     }

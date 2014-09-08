@@ -46,7 +46,7 @@ $app->get('/student', function () use ($app) {
     $userFullName = $user->getFullName();
     $userId = $user->getId();
     // Get the module list for the given user
-    $moduleList = new models\ModuleList($user);
+    $moduleList = new models\ModuleList($user, $moodle);
     ///////////////
     // Aspire lists
     ///////////////
