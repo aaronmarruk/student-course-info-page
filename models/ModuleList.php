@@ -1,19 +1,19 @@
 <?php 
 
 namespace models;
-use lib\Core;
+// use lib\Core;
 use moodle\MoodleQuery;
 use PDO;
 
 class ModuleList {
 
-  protected $core;
+  // protected $core;
   public $moduleList;
   protected $moodle;
 
   public function __construct ( $user, $moodle ) {
     
-    $this->core = Core::getInstance();
+    // $this->core = Core::getInstance();
 
     if (isset($_COOKIE['MoodleSession'])) {
       $this->moodle = $moodle;
