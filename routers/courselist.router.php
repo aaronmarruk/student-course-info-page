@@ -1,16 +1,16 @@
 <?php
 
 use lib\Config;
-use moodlequery\MoodleQuery;
-use moodlequery\AspireAPI;
+use \moodle;
+use \aspire;
 
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
 
-require_once('../moodlequery/config.php');
-require_once('../moodlequery/class.moodlequery.php');
-require_once('../moodlequery/class.aspireapi.php'); 
+//require_once('moodlequery/config.php');
+require_once('moodlequery/class.moodlequery.php');
+require_once('moodlequery/class.aspireapi.php'); 
 
 // Get user
 $app->get('/student', function () use ($app) {  
@@ -29,7 +29,7 @@ $app->get('/student', function () use ($app) {
     $scip = Config::read('site.root.scip');
 
     // Get instance of MoodleQuery, i.e. $CFG
-    $moodle = new MoodleQuery($cfg);
+    $moodle = new moodle\MoodleQuery($cfg);
 
     // Try to load user
     // if fails, redirect to Login
@@ -72,7 +72,7 @@ $app->get('/student', function () use ($app) {
     // Get the aspire config from Moodle object
     $aspireconfig = $moodle->getaspireconfig();
 
-    $aspire = new AspireAPI($aspireconfig);
+    $aspire = new aspire\AspireAPI($aspireconfig);
 
     // Create an array for storing our lists per course
     $aspireLists = array();
