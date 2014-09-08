@@ -1,0 +1,190 @@
+.files-list{
+	list-style: none;
+	margin: 0 0 30px;
+	display: block;
+	float: left;
+}
+
+	.files-list__file{
+		display: block;
+		width: 190px;
+		background: #E0E2E2;
+		padding: 20px;
+		float: left;
+		margin: 7px;
+		height: 240px;
+		position: relative;
+		-moz-box-shadow: 0 1px 0 rgba(0,0,0,.1),-1px 1px 2px rgba(0,0,0,.3);
+		-webkit-box-shadow: 0 1px 0 rgba(0,0,0,.1),-1px 1px 2px rgba(0,0,0,.3);
+		box-shadow: 0 1px 0 rgba(0,0,0,.15),-1px 1px 2px rgba(0,0,0,.3);
+		-webkit-border-radius: 1px 6px 6px 1px;
+		-moz-border-radius: 1px 6px 6px 1px;
+		border-radius: 1px 6px 6px 1px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		overflow: hidden;
+	}
+
+		.files-list__file:before{
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			border-width: 0 10px 16px 0;
+			border-style: solid;
+			display: block;
+			width: 0;
+			border-width: 9px;
+			border-color: #fff #fff #AFB5B9 #AFB5B9;
+			-webkit-border-bottom-left-radius: 5px;
+			-moz-border-radius: 0 0 0 5px;
+			border-radius: 0 0 0 5px;
+			border-style: solid;
+		}
+
+		.files-list__file-link{
+			color: #333;
+		}
+
+			.files-list__file-link:hover{
+				text-decoration: none;
+			}
+
+		.files-list__file-title{
+			background: #fff;
+			background: #fff;
+			padding: 5px;
+		}	
+
+		.files-list__file-meta{
+			display: block;
+			list-style: none;
+			margin: 0;
+			bottom: 20px;
+			right: 20px;
+			position: absolute;
+			text-align: right;
+		}
+
+.module-list{
+	list-style: none;
+	border-top: 1px solid #DBDBDB;
+	margin: 0 0 40px;
+}
+
+	.module-list__module{
+		border-bottom: 1px solid #DBDBDB;
+		padding: 30px 0;
+		position: relative;
+	}
+
+	.module-list__code{
+		background: #C9CECE;
+	}
+
+	.module-list__title{} 
+
+	.module-list__item-desc{}
+
+	.module-list__readings-link{
+
+	}
+
+	.module-list__readings-link{
+		right: 0px;
+		top: 30px;
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		height: 122px;
+		width: 104px;
+		background: #E0E7EB;
+		-webkit-border-radius: 6px 2px 0 6px;
+		-moz-border-radius: 6px 2px 0 6px;
+		border-radius: 6px 2px 0 6px;
+		border: 1px solid #C3CCD0;
+		-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0), 0 0 10px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 1px 0 rgba(255, 255, 255, 0), 0 0 10px rgba(0, 0, 0, 0.1);
+		text-align: center;
+		text-decoration: none;
+		margin-bottom: 30px;
+	}
+	.module-list__readings-link:after,
+	.module-list__readings-link:before {
+		border: 1px solid #C3CCD0;
+		content: "";
+		position: absolute;
+		left: -1px;
+		right: -1px;
+	}
+	.module-list__readings-link:before {
+		height: 3px;
+		bottom: 3px;
+		border-radius: 6px 0 0 6px;
+		background: #d2dce0;
+		background: -moz-linear-gradient(top, #d2dce0 0%, #e0e7eb 50%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d2dce0), color-stop(50%,#e0e7eb));
+		background: -webkit-linear-gradient(top, #d2dce0 0%,#e0e7eb 50%);
+		background: -o-linear-gradient(top, #d2dce0 0%,#e0e7eb 50%);
+		background: -ms-linear-gradient(top, #d2dce0 0%,#e0e7eb 50%);
+		background: linear-gradient(to bottom, #d2dce0 0%,#e0e7eb 50%);
+	}
+	.module-list__readings-link:after {
+		height: 7px;
+		bottom: 3px;
+		border-radius: 4px 0 0 4px;
+	}
+	.module-list__readings-link span {
+		color: #526066;
+		font-size: 13px;
+		background: #fff;
+		padding: 5px;
+	}
+	.module-list__readings-link span:after {
+	  position: absolute;
+	  bottom: 7px;
+	  left: 0;
+	  width: 100%;
+	  content: "";
+	  border-bottom: 1px solid #C3CCD0;
+	}
+	.module-list__readings-link span:before {
+	  content: '';
+	  display: inline-block;
+	  height: 100%;
+	  vertical-align: middle;
+	  margin-top: -20px;
+	}
+
+.contact-cards{
+
+	list-style: none;
+	margin: 0 0 40px;
+}
+
+.contact-cards__card{
+	background: #E0E2E2;
+	padding: 20px;
+	margin-bottom: 20px;
+	width: 400px;
+}
+     
+.contact-cards__pic{
+	display: block;
+	height: 80px;
+	width: 80px;
+	margin-bottom: 10px;
+	border-radius: 400px;
+	background: transparent url('http://st.depositphotos.com/1005738/2991/v/950/depositphotos_29914121-Vintage-hipsters-geometric-pattern..jpg');
+	background-size: cover;
+}
+.contact-cards__text{}
+
+.contact-cards__details{
+	margin-left: 0;
+	list-style: none;
+}
+           
+        
+
