@@ -2,7 +2,7 @@
 
 namespace models;
 use lib\Core;
-use moodlequery\MoodleQuery;
+use moodle\MoodleQuery;
 use PDO;
 
 class ModuleList {
