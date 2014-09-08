@@ -53,6 +53,10 @@ class User {
     return $this->moodleUser;
   }
 
+  public function getId(){
+    return $this->id;
+  }
+
   public function getFirstname(){
     return $this->firstname;
   }

@@ -4,6 +4,13 @@
 <head>
 <title>Page title</title>
 <link rel="stylesheet" type="text/css" href="{{ base }}/rdrctr/public/css/style.css">
+
+<!-- SCIP PAGE CSS -->
+<link rel="stylesheet" type="text/css" href="{{ base }}/rdrctr/public/css/scip.css">
+
+<!-- FONT AWESOME -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 <body id="page-site-index" class="cbp-spmenu-push format-site course path-site safari dir-ltr lang-en yui-skin-sam yui3-skin-sam learningspace-falmouth-ac-uk pagelayout-frontpage course-1 context-2 side-pre-only">
   <div id="wrapper">
@@ -17,12 +24,12 @@
 <header role="banner" class="navbar navbar-fixed-top">
   <nav role="navigation" class="navbar-inner navbar-inverse">
     <div class="container-fluid">
-      <a class="brand" href="http://learningspace.falmouth.ac.uk">Learning Space</a>
+      <a class="brand" href="{{ scip }}">Learning Space</a>
       <div id="mobile-header">
         <a id="responsive-menu-button" href="#sidr-main"><i class="fa icon fa-bars"></i></a>
       </div>
       <ul class="nav">
-        <li><a href="http://learningspace.falmouth.ac.uk">My Modules</a></li>
+        <li><a href="{{ scip }}">My Modules</a></li>
 
         <li class="dropdown"><a class="menu-item-resources dropdown-toggle" data-toggle="dropdown" href="#">Resources</a>
           <ul class="dropdown-menu">
@@ -51,7 +58,7 @@
         <li class="editbtn"></li> 
         <li><a href="http://etsupport.freshdesk.com/support/solutions/158481">Help</a></li> 
         <li></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="http://learningspace.falmouth.ac.uk/user/profile.php?id=15" title="View profile"><img src="http://learningspace.falmouth.ac.uk/pluginfile.php/626/user/icon/learningspace/f2?rev=113127" />Aaron Marr <b class="caret"></b></a><ul class="dropdown-menu" id="user-context-menu" role="menu"><li id="usermenuheader"><h2>User Menu</h2></li><li class="menu-item-resources"><a href="/">My Modules</a></li><li ><a href="http://mytimetable.falmouth.ac.uk/">My Timetable</a></li><li><a href="http://learningspace.falmouth.ac.uk/user/profile.php?id=15" title="View profile">My Profile</a></li><li id="student-email-link"><a href="http://studentmail.falmouth.ac.uk/">My Email</a></li><li id="staff-email-link"><a href="http://mailspace.falmouth.ac.uk/">My Email</a></li><li class="divider"></li><li><a href="http://learningspace.falmouth.ac.uk/login/logout.php?sesskey=rirJYNBRkX">Logout</a></li></ul></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{{ base }}/user/profile.php?id={{ userId }}" title="View profile"><!-- <img src="{{ base }}/pluginfile.php/626/user/icon/learningspace/f2" /> -->{{ userFullName }} <b class="caret"></b></a><ul class="dropdown-menu" id="user-context-menu" role="menu"><li id="usermenuheader"><h2>User Menu</h2></li><li class="menu-item-resources"><a href="/">My Modules</a></li><li ><a href="http://mytimetable.falmouth.ac.uk/">My Timetable</a></li><li><a href="{{ base }}/user/profile.php?id={{ userId }}" title="View profile">My Profile</a></li><li id="student-email-link"><a href="http://studentmail.falmouth.ac.uk/">My Email</a></li><li id="staff-email-link"><a href="http://mailspace.falmouth.ac.uk/">My Email</a></li><li class="divider"></li><li><a href="{{ base }}/login/logout.php">Logout</a></li></ul></li>
         <!--<li><a href="#" id="trigger" class="icon-list"> MAIN MENU</a></li>-->
         <!--<button id="showLeft">Show/Hide Left Slide Menu</button>-->
       </ul>

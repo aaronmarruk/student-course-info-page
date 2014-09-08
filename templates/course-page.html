@@ -1,11 +1,11 @@
-<!-- LS Header – Ripped d'reckly from Learning Space -->
+<!-- LS Header ripped d'reckly from Learning Space -->
 {% include 'learningspace-header.html' %}
 
   <h1>Welcome back, {{ userFirstName }}</h1> 
 
   <!-- My Modules -->
   <h2>My Modules</h2>
-  <ul>
+  <ul class="module-list">
   {# Define fullname var that we will #}
   {# use to check repitition inside for loop. #}
   {# Skip if is same coursename as prev #}
@@ -16,19 +16,29 @@
   {% for module in modules %}
   	{% if module.fullname != fullname %}
   		
-  		{% set fullname = module.fullname %}
+  		{% set name = module.newName %}
 
-  		<li>
-        <a href="{{ base ~ '/course/view.php?id=' ~ module.id }}">{{ module.shortname }}</a>
+  		<li class="module-list__module">
+
+        {% if module.idnumber != "" %}
+          <h5 class="module-list__code badge">{{ module.idnumber }}</h5>
+        {% endif %}
+
+        <h2 class="module-list__title"><a href="{{ base ~ '/course/view.php?id=' ~ module.id }}">{{ module.newName }}</a></h2>
+        
+        {% if module.summary != "" %}
+        <p class="module-list__item-desc">
+          {{ module.summary }}
+        </p>
+        {% endif %}
 
         {# if there is a reading list for this module #}
         {% if readingLists[module.fullname][0].name != "" %}
-        <ul>
-          <li>
-            <a href="{{ readingLists[module.fullname][0].url }}"><strong>Reading List</strong></a>
-          </li>
-        </ul>
+          
+          <a class="module-list__readings-link" href="{{ readingLists[module.fullname][0].url }}"><span><i class="fa fa-book"></i> Reading list</span></a>
+
         {% endif %}
+           
       </li>
   	
   	{% else %}
@@ -40,27 +50,40 @@
 
   <!-- Contacts -->
   <h2>Contacts</h2>
-  <ul>
+  <ul class="contact-cards">
       {% for contact in contacts %}
-      <li>{{ contact.name }}
-          <ul>
-            
-            <li>{{ contact.email }}</li>
-            <li>{{ contact.telephone }}</li>
+      <li class="contact-cards__card">
+          <ul class="contact-cards__details">
+            <li class="contact-cards__pic"></li>
+            <li class="contact-cards__text"><strong>{{ contact.name }}</strong></li>
+            <li class="contact-cards__text">{{ contact.email }}</li>
+            <li class="contact-cards__text">{{ contact.telephone }}</li>
           </ul>
       </li>
       {% endfor %}
   </ul>
   <!-- END Contacts -->
 
-  <!-- Contacts -->
+  <!-- Files -->
   <h2>Files</h2>
-  <ul>
+  <ul class="files-list">
       {% for file in files %}
-          <li><a href="{{ file.link }}">{{ file.title }}</a></li>
+          <li class="files-list__file">
+            <a class="files-list__file-link" href="{{ file.link }}">
+              <h2 class="files-list__file-title">{{ file.title }}</h2>
+              <ul class="files-list__file-meta">
+                <li>
+                  {{ file.size }}
+                </li>
+                <li>
+                  {{ file.ext }}
+                </li>
+              </ul>
+            </a>
+          </li>
       {% endfor %}
   </ul>
-  <!-- END Contacts -->
+  <!-- END Files -->
 
   <!-- Reading Lists -->
   <h2>Reading Lists</h2>
