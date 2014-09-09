@@ -15,7 +15,7 @@ require_once('moodlequery/class.aspireapi.php');
 ///////////////
 // Get user
 ///////////////
-$app->get('/student', function () use ($app) {  
+$app->get('/course-information', function () use ($app) {  
   // // Get course list per user
   // Try to load user
   // if fails, redirect to Login
@@ -84,9 +84,7 @@ $app->get('/student', function () use ($app) {
   $jsonApi = new models\JsonApi();
   // Get json data by passing in url
   $jsonData = $jsonApi->getJson($jsonUrl);
-  // get the contacts from returned array
-  $contacts = $jsonData["contacts"];
-  // get the files also
+  // get the files 
   $files = $jsonData["files"];
   // Iterator for files array
   $filesIterator = 0;
@@ -121,22 +119,20 @@ $app->get('/student', function () use ($app) {
   $userFirstName = $user->getFirstName();
   $userFullName = $user->getFullName();
   $userId = $user->getId();
+  // get the personal tutor
+  $personalTutor = new models\PersonalTutor();
 
   $params = [
     "modules" => $modules,
     "base" => $base,
     "scip" => $scip,
-    "contacts" => $contacts,
+    "personalTutor" => $personalTutor,
     "files" => $files,
     "readingLists" => $aspireLists,
     "userId" => $userId,
     "userFirstName" => $userFirstName,
     "userFullName" => $userFullName,
   ];
+
   $app->render('course-page.html', $params);
 });
-
-
-// $app->get('/course/.*?', function () use ($app) {
-//     $app->render('test.html', array('test' => "This is a little test"));
-// });

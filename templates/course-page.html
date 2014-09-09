@@ -49,18 +49,17 @@
 <!-- END My Modules -->
 
   <!-- Contacts -->
-  <h2>Contacts</h2>
+  <h2>Personal Tutor</h2>
+  <p>Your personal tutor is whatever...</p>
   <ul class="contact-cards">
-      {% for contact in contacts %}
-      <li class="contact-cards__card">
-          <ul class="contact-cards__details">
-            <li class="contact-cards__pic"></li>
-            <li class="contact-cards__text"><strong>{{ contact.name }}</strong></li>
-            <li class="contact-cards__text">{{ contact.email }}</li>
-            <li class="contact-cards__text">{{ contact.telephone }}</li>
-          </ul>
-      </li>
-      {% endfor %}
+    <li class="contact-cards__card">
+      <ul class="contact-cards__details">
+        <li class="contact-cards__pic"></li>
+        <li class="contact-cards__text"><strong>{{ personalTutor.name }}</strong></li>
+        <li class="contact-cards__text">{{ personalTutor.email }}</li>
+        <li class="contact-cards__text">{{ personalTutor.telephone }}</li>
+      </ul>
+    </li>
   </ul>
   <!-- END Contacts -->
 

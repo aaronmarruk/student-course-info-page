@@ -12,6 +12,7 @@ class User {
 
   public $moodleUser;
   public $id;
+  public $username;
   public $firstname;
   public $lastname;
   public $fullname;
@@ -40,6 +41,9 @@ class User {
       // grab the uid from user
       $this->id = $this->moodleUser->id;
 
+      // grab the LDAP username, e.g. am144296 from user
+      $this->username = $this->moodleUser->username;
+
       // grab the first name
       $this->firstname = $this->moodleUser->firstname;
 
@@ -66,6 +70,10 @@ class User {
 
   public function getId(){
     return $this->id;
+  }
+
+  public function getUsername(){
+    return $this->username;
   }
 
   public function getFirstname(){
