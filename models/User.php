@@ -16,16 +16,27 @@ class User {
   public $lastname;
   public $fullname;
 
-  public function __construct ($moodle, $userIsSet = false) {
+  public function __construct ($userIsSet = false) {
+
+  // Get the current app instance
+  $app = \Slim\Slim::getInstance();
+
+  $moodle = $app->moodle;
 
   // if there is a Moodle Session, i.e. logged into Moodle
   if ( isset($_COOKIE['MoodleSession']) ){
 
+  k($app->moodle);
+
     if($this->moodleUser = $moodle->getuser($_COOKIE['MoodleSession'])){
       
+      k($_COOKIE['MoodleSession']);
+
       // Set this Moodle user to user in session cookie
       $this->moodleUser = $moodle->getuser($_COOKIE['MoodleSession']);
-    
+      
+      k($this->moodleUser);
+
       // grab the uid from user
       $this->id = $this->moodleUser->id;
 
