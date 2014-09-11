@@ -18,6 +18,23 @@
         "twig/twig":"1.*",
         "symfony/yaml": "2.6.*@dev"
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "maegnes/SlimCachingManager",
+                "version": "*",
+                "dist": {
+                    "url": "https://github.com/maegnes/SlimCachingManager/",
+                    "type": "vcs"
+                },
+                "autoload": {
+                    "psr-0": { "maegnes\\SlimCachingManager": "" }
+                },
+                "target-dir": "maegnes/SlimCachingManager"
+            }
+        }
+    ],
     "autoload":{
         "psr-0":{
             "": ""
