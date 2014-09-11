@@ -26,38 +26,24 @@ class User {
 
   // if there is a Moodle Session, i.e. logged into Moodle
   if ( isset($_COOKIE['MoodleSession']) ){
-
-  k($app->moodle);
-
+    // Check that we have a moodle session
     if($this->moodleUser = $moodle->getuser($_COOKIE['MoodleSession'])){
-      
-      k($_COOKIE['MoodleSession']);
-
       // Set this Moodle user to user in session cookie
       $this->moodleUser = $moodle->getuser($_COOKIE['MoodleSession']);
-      
-      k($this->moodleUser);
-
       // grab the uid from user
       $this->id = $this->moodleUser->id;
-
       // grab the LDAP username, e.g. am144296 from user
       $this->username = $this->moodleUser->username;
-
       // grab the first name
       $this->firstname = $this->moodleUser->firstname;
-
       // grab the last name
       $this->lastname = $this->moodleUser->lastname;
-
       // Create fullname var
       $this->fullname = $this->firstname .' '. $this->lastname;
-
       $userIsSet = true;
-    } else {
-      throw new \Exception('No session found, redirecting to login.');
-    }
-
+      } else {
+        return false;
+      }
     // else, if no session found, not logged in
     } else {
       // throw new \Exception('No user set');

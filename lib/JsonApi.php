@@ -1,6 +1,6 @@
 <?php 
 
-namespace models;
+namespace lib;
 // use lib\Core;
 // use PDO;
 
@@ -23,9 +23,13 @@ class JsonApi {
 
     $r = curl_exec($curlSession);
 
+    k($r);
+
     // $r = preg_replace('/\s+/', '',$r); 
 
     $r = json_decode($r, true);
+
+    // k($r);
 
     curl_close($curlSession); 
     return $r;

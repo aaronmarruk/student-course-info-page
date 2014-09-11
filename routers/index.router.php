@@ -2,6 +2,16 @@
 
 use lib\Config;
 
+use Symfony\Component\Yaml\Parser;
+
+$yaml = new Parser();
+
+
+
+$value = $yaml->parse(file_get_contents('config.yml'));
+
+
+
 // GET index route
 $app->get('/', function () use ($app) {
 
