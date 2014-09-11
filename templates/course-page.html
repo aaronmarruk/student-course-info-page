@@ -3,8 +3,17 @@
 
   <h1>Welcome back, {{ userFirstName }}</h1> 
 
-  <!-- My Modules -->
-  <h2>My Modules</h2>
+  <!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#my-modules" role="tab" data-toggle="tab">My Modules</a></li>
+  <li><a href="#course-information" role="tab" data-toggle="tab">Course Information</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="my-modules">
+    <!-- My Modules -->
+  <!-- <h1 id="section--my-modules">My Modules</h1> -->
   <ul class="module-list">
   {# Define fullname var that we will #}
   {# use to check repitition inside for loop. #}
@@ -14,17 +23,17 @@
 
   {# Define fullname var that we will #}
   {% for module in modules %}
-  	{% if module.fullname != fullname %}
-  		
-  		{% set name = module.newName %}
+    {% if module.fullname != fullname %}
+      
+      {% set name = module.newName %}
 
-  		<li class="module-list__module">
+      <li class="module-list__module">
 
         {% if module.idnumber != "" %}
           <h5 class="module-list__code badge">{{ module.idnumber }}</h5>
         {% endif %}
 
-        <h2 class="module-list__title"><a href="{{ base ~ '/course/view.php?id=' ~ module.id }}">{{ module.newName }}</a></h2>
+        <h2 class="module-list__title"><a href="{{ siteRoot ~ '/course/view.php?id=' ~ module.id }}">{{ module.newName }}</a></h2>
         
         {% if module.summary != "" %}
         <p class="module-list__item-desc">
@@ -40,60 +49,88 @@
         {% endif %}
            
       </li>
-  	
-  	{% else %}
-  		{# Do nothing #}   	
+    
+    {% else %}
+      {# Do nothing #}    
     {% endif %}
   {% endfor %}
 </ul>
 <!-- END My Modules -->
+  </div>
 
-  <!-- Contacts -->
-  <h2>Personal Tutor</h2>
-  <p>Your personal tutor is whatever...</p>
-  <ul class="contact-cards">
-    <li class="contact-cards__card">
-      <ul class="contact-cards__details">
-        <li class="contact-cards__pic"></li>
-        <li class="contact-cards__text"><strong>{{ personalTutor.name }}</strong></li>
-        <li class="contact-cards__text">{{ personalTutor.email }}</li>
-        <li class="contact-cards__text">{{ personalTutor.telephone }}</li>
-      </ul>
-    </li>
-  </ul>
-  <!-- END Contacts -->
 
-  <!-- Files -->
-  <h2>Files</h2>
-  <ul class="files-list">
+
+  <div class="tab-pane" id="course-information">
+    <!-- Welcome -->
+    {% if courseWelcome != "" %}
+    <h1>{{ courseName }}</h1>
+    <p>{{ courseWelcome }}</p>
+    <img src="{{ courseWelcomePhoto }}">
+    <p>{{ courseWelcomeName }}</p>
+    <p>{{ courseWelcomeJobTitle }}</p>
+    {% endif %}
+    <!-- END Welcome -->
+    
+    <!-- Contacts -->
+    {% if personalTutor.name != "" %}
+    <h1 id="section--personal-tutor">Personal Tutor</h1>
+    <p>Your personal tutor is whatever...</p>
+    <ul class="contact-cards">
+      <li class="contact-cards__card">
+        <ul class="contact-cards__details">
+          <li class="contact-cards__pic"></li>
+          <li class="contact-cards__text"><h3>{{ personalTutor.name }}</h3></li>
+          <li class="contact-cards__text"><strong>{{ personalTutor.jobTitle }}</strong></li>
+          <li class="contact-cards__text">{{ personalTutor.email }}</li>
+          <li class="contact-cards__text">{{ personalTutor.telephone }}</li>
+        </ul>
+      </li>
+    </ul>
+    {% endif %}
+    <!-- END Contacts -->
+
+    <!-- Files -->
+    {% if files != NULL %}
+    <h1 id="section--important-documents">Important documents</h1>
+    <p>Below you will find important documents relating to your course</p>
+    <ul class="files-list">
       {% for file in files %}
-          <li class="files-list__file">
-            <a class="files-list__file-link" href="{{ file.link }}">
-              <h2 class="files-list__file-title">{{ file.title }}</h2>
-              <ul class="files-list__file-meta">
-                <li>
-                  {{ file.size }}
-                </li>
-                <li>
-                  {{ file.ext }}
-                </li>
-              </ul>
-            </a>
-          </li>
+      <li class="files-list__file">
+        <a class="files-list__file-link" href="{{ file.link }}">
+        <p class="files-list__file-title"><small>{{ file.title }}</small></p>
+      <!-- <ul class="files-list__file-meta">
+        <li>
+        {{ file.size }}
+        </li>
+        <li>
+        {{ file.ext }}
+        </li>
+      </ul> -->
+      </a>
+      </li>
       {% endfor %}
-  </ul>
-  <!-- END Files -->
+    </ul>
+    {% endif %}
+    <!-- END Files -->
 
-  <!-- Reading Lists -->
-  <h2>Reading Lists</h2>
-  <ul>
-    {% for moduleReadingList in readingLists %}
-      {% for item in moduleReadingList %}
-        <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+    <!-- Reading Lists -->
+    <!-- <h2>Reading Lists</h2>
+    <ul>
+      {% for moduleReadingList in readingLists %}
+        {% for item in moduleReadingList %}
+          <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+        {% endfor %}
       {% endfor %}
-    {% endfor %}
-  </ul>
-  <!-- END Reading Lists -->
+    </ul> -->
+    <!-- END Reading Lists -->
+    
+  </div>
+
+</div>
+
+  
+
+  
 
 <!-- LS Footer – Ripped d'reckly from Learning Space -->
 {% include 'learningspace-footer.html' %}
