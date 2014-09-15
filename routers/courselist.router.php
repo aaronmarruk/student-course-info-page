@@ -32,43 +32,7 @@ $app->get('/student', function () use ($app) {
   } else {
     // If the is a user, get the user
     $user = $app->user;
-  }
-  ///////////////
-  // Aspire lists
-  ///////////////
-  // // Get the aspire config from Moodle object
-  // $aspireconfig = $app->moodle->getaspireconfig();
-  // $aspire = new aspire\AspireAPI($aspireconfig);
-  // // Create an array for storing our lists per course
-  // $aspireLists = array();
-  // for each course in the courselist
-  // foreach($course->getModuleList() as $module) {
-  //   // k($module);
-  //   // if the module has an id number
-  //   if ($module->idnumber){
-  //     // module id, prefix to most module fullnames
-  //     $id = $module->idnumber . " ";
-  //     // the module fullname
-  //     $name = $module->fullname;
-  //     // Remove the ID prefix from module name
-  //     $newName = str_replace($id, "", $name); 
-  //     // if there is a reading list for the module
-  //     if( (array) $aspire->modulelists($module)[0] != FALSE ){
-  //       // get the reading list object from aspire and cast as array
-  //       $readinglists = (array) $aspire->modulelists($module);
-  //       // store readinglist in lists array using module name as key
-  //       $aspireLists[$module->fullname] = $readinglists;
-  //     }
-  //     // Update the module fullname. i.e. without id prefix        
-  //     // Strip html tags from the module summary  
-  //   }
-  //   $module->newName = $newName;
-  //   // Strip html tags from summary
-  //   $module->summary = strip_tags($module->summary);
-  //   // Strip ï¿½
-  //   $module->summary = str_replace("\uFFFD", "", $module->summary);
-  // }
-  
+  }  
   // Get the course for the given user... 
   // hint, user is an app singleton
   $course = new models\Course();
