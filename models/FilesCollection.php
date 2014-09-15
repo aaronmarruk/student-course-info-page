@@ -27,8 +27,22 @@ class FilesCollection {
       echo '<p><em>Moodle session id <strong>not found</strong></em</p>';
       return false;
     }
+    $url = 'https://webservices.fxplus.ac.uk/thelearningspace/bafinaff.json';
+    $this->loadFiles($url);
+    $this->processFiles($this->files);
+  }
+  //////////
+  // GETTERS
+  //////////
+  public function getFiles(){
+    return $this->files;
+  }
+  ////////////////
+  // PRIVATE FUNCS
+  ////////////////
+  private function loadFiles($url){
     // Get Json from Sharepoint API (Fake url @ present)
-    $jsonUrl = 'https://webservices.fxplus.ac.uk/thelearningspace/bafinaff.json';
+    $jsonUrl = $url;
     // Get a JSON API
     $jsonApi = new JsonApi();
     // Get json data by passing in url
@@ -38,35 +52,33 @@ class FilesCollection {
     if($jsonData != NULL){
       // $welcomeMessage = $jsonData[""]
       // get the files 
-      $this->files = $jsonData["files"];
-      // Iterator for files array
-      $filesIterator = 0;
-      if ($this->files) {
-        // for each course in the courselist
-        foreach($this->files as $file) {
-          // The subject of our preg_match
-          $subject = $file["link"];
-          // Regex for finding file extensions
-          $pattern = '/\.[0-9a-z]+$/i';
-          // Find possible matches, i.e. the file ext e.g. .png
-          preg_match($pattern, $subject, $matches, PREG_OFFSET_CAPTURE, 3);
-          // The result of the regex, i.e. the extension e.g. .png
-          $ext = str_replace(".", "", (string) $matches[0][0]);
-          // add the extensiin to the file array
-          $file["ext"] = $ext;
-          // Update the files array with our updated file, i.e. now contains ext
-          $this->files[$filesIterator] = $file; 
-          // Update the iterator so we can look through the files in the array
-          $filesIterator += 1;  
-        }
-      }
+      $this->files = $jsonData["files"]; 
     } else {
       $this->files = NULL;
     }
   }
-  // Return Files
-  public function getFiles(){
-    return $this->files;
+  private function processFiles($files){
+    // Iterator for files array
+    $filesIterator = 0;
+    if ($files) {
+      // for each course in the courselist
+      foreach($files as $file) {
+        // The subject of our preg_match
+        $subject = $file["link"];
+        // Regex for finding file extensions
+        $pattern = '/\.[0-9a-z]+$/i';
+        // Find possible matches, i.e. the file ext e.g. .png
+        preg_match($pattern, $subject, $matches, PREG_OFFSET_CAPTURE, 3);
+        // The result of the regex, i.e. the extension e.g. .png
+        $ext = str_replace(".", "", (string) $matches[0][0]);
+        // add the extensiin to the file array
+        $file["ext"] = $ext;
+        // Update the files array with our updated file, i.e. now contains ext
+        $this->files[$filesIterator] = $file; 
+        // Update the iterator so we can look through the files in the array
+        $filesIterator += 1;  
+      }
+    }
   }
 } 
 ?>

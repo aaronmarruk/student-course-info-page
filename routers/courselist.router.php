@@ -16,6 +16,7 @@ require_once('moodlequery/class.aspireapi.php');
 // Get user
 ///////////////
 $app->get('/student', function () use ($app) {  
+
   // // Get course list per user
   // If user ID is NULL, we don't have a user, i.e. no sign in
   if($app->user->id == NULL) {
@@ -67,7 +68,7 @@ $app->get('/student', function () use ($app) {
   //   // Strip ï¿½
   //   $module->summary = str_replace("\uFFFD", "", $module->summary);
   // }
-
+  
   // Get the course for the given user... 
   // hint, user is an app singleton
   $course = new models\Course();

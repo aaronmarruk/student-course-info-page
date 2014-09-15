@@ -1,7 +1,6 @@
 <?php 
 
 namespace models;
-// use lib\Core;
 use moodle\MoodleQuery;
 use lib\Config;
 use lib\JsonApi;
@@ -41,11 +40,20 @@ class ModuleCollection {
     $this->modules = $moodle->getenrolments($user);
     // Now we will process the modules, add a 
     // few things that will be useful in the view.
-    // Module Iterator
-    $mI = 0;
-    echo "printing the modules";
-    // k($this->modules);
-
+    $this->processModuleNames();
+  }
+  //////////
+  // GETTERS
+  //////////
+  public function getModules(){
+    return $this->modules;
+  }
+  ////////////////
+  // PRIVATE FUNCS
+  ////////////////
+  private function processModuleNames(){
+    // Iterator
+    $i = 0;
     // for each course in the courselist
     foreach($this->modules as $module) {
       // k($module);
@@ -72,15 +80,10 @@ class ModuleCollection {
       $module->summary = strip_tags($module->summary);
       // Strip ï¿½
       $module->summary = str_replace("\uFFFD", "", $module->summary);
-
-      $this->moduleList[$mI] = $module;
+      $this->moduleList[$i] = $module;
       // k($this->$moduleList);
-      $mI += 1;
+      $i += 1;
     } // End foreach
-  }
-
-  public function getModules(){
-    return $this->modules;
   }
 
 } 
