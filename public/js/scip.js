@@ -22,11 +22,9 @@ $(document).ready(function () {
             }, !1)
         }
     };
-    t("sidr-main")
+
 });
 $(document).ready(function () {
-
-
 
     $("ul.nav li.dropdown").hover(function () {
         $(this).find(".dropdown-menu").stop(!0, !0).delay(200).show()
@@ -38,9 +36,6 @@ $(document).ready(function () {
     }, function () {
         $(this).closest(".dropdown").find(".dropdown-toggle").removeClass("dropdown-hover")
     });
-    // $("body").fitVids();
-
-
 
     $("#responsive-menu-button").sidr({
         name: "sidr-main",
@@ -51,30 +46,5 @@ $(document).ready(function () {
     $("#responsive-menu-button").click(function (e) {
         $(".brand").fadeToggle();
         e.preventDefault()
-    });
-    
-    
+    }); 
 });
-// $(document).ready(function (e) {
-//     e("form.quform").Quform();
-//     e("#display-instant-feedback-form").on("click", function (t) {
-//         t.preventDefault();
-//         e("#instant-feedback-form").slideToggle()
-//     });
-//     e.isFunction(e.fn.qtip) && e(".quform-tooltip").qtip({
-//         content: {
-//             text: !1
-//         },
-//         style: {
-//             classes: "qtip-default qtip-shadow quform-tt",
-//             width: "180px"
-//         },
-//         position: {
-//             my: "left center",
-//             at: "right center"
-//         }
-//     });
-//     e("#subject").replaceSelectWithTextInput({
-//         onValue: "Other"
-//     })
-// })

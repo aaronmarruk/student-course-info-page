@@ -3,14 +3,17 @@
 namespace lib;
 
 // Configuration Class
-class Config {
-    static $confArray;
+class Config
+{
+    public static $confArray;
 
-    public static function read($name) {
+    public static function read($name)
+    {
         return self::$confArray[$name];
     }
 
-    public static function write($name, $value) {
+    public static function write($name, $value)
+    {
         self::$confArray[$name] = $value;
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "641771defec030244f5a1c7f836d410b",
+    "hash": "f6af3ade827504c327c790f5e34a2ab9",
     "packages": [
         {
             "name": "oodle/krumo",

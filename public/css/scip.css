@@ -70,6 +70,16 @@
 			text-align: right;
 		}
 
+		.files-list__icon{
+			display: block;
+			position: absolute;
+			bottom: 20px;
+			font-size: 80px;
+			left: 39px;
+			color: rgba(0, 0, 0, 0.12);	
+		}
+
+
 .module-list{
 	list-style: none;
 	/*border-top: 1px solid #DBDBDB;*/

@@ -26,8 +26,6 @@ $(document).ready(function () {
 });
 $(document).ready(function () {
 
-
-
     $("ul.nav li.dropdown").hover(function () {
         $(this).find(".dropdown-menu").stop(!0, !0).delay(200).show()
     }, function () {
@@ -38,10 +36,7 @@ $(document).ready(function () {
     }, function () {
         $(this).closest(".dropdown").find(".dropdown-toggle").removeClass("dropdown-hover")
     });
-    // $("body").fitVids();
-
-
-
+ 
     $("#responsive-menu-button").sidr({
         name: "sidr-main",
         speed: 200,
@@ -52,29 +47,4 @@ $(document).ready(function () {
         $(".brand").fadeToggle();
         e.preventDefault()
     });
-    
-    
 });
-// $(document).ready(function (e) {
-//     e("form.quform").Quform();
-//     e("#display-instant-feedback-form").on("click", function (t) {
-//         t.preventDefault();
-//         e("#instant-feedback-form").slideToggle()
-//     });
-//     e.isFunction(e.fn.qtip) && e(".quform-tooltip").qtip({
-//         content: {
-//             text: !1
-//         },
-//         style: {
-//             classes: "qtip-default qtip-shadow quform-tt",
-//             width: "180px"
-//         },
-//         position: {
-//             my: "left center",
-//             at: "right center"
-//         }
-//     });
-//     e("#subject").replaceSelectWithTextInput({
-//         onValue: "Other"
-//     })
-// })

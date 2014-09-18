@@ -4,75 +4,81 @@ namespace models;
 
 use lib\Config;
 
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(-1);
 
-class User {
+class User
+{
 
-  public $moodleUser;
-  public $id;
-  public $username;
-  public $firstname;
-  public $lastname;
-  public $fullname;
+    public $moodleUser;
+    public $id;
+    public $username;
+    public $firstname;
+    public $lastname;
+    public $fullname;
 
-  public function __construct ($userIsSet = false) {
+    public function __construct($userIsSet = false)
+    {
 
-  // Get the current app instance
-  $app = \Slim\Slim::getInstance();
+        // Get the current app instance
+        $app = \Slim\Slim::getInstance();
 
-  $moodle = $app->moodle;
+        $moodle = $app->moodle;
 
-  // if there is a Moodle Session, i.e. logged into Moodle
-  if ( isset($_COOKIE['MoodleSession']) ){
-    // Check that we have a moodle session
-    if($this->moodleUser = $moodle->getuser($_COOKIE['MoodleSession'])){
-      // Set this Moodle user to user in session cookie
-      $this->moodleUser = $moodle->getuser($_COOKIE['MoodleSession']);
-      // grab the uid from user
-      $this->id = $this->moodleUser->id;
-      // grab the LDAP username, e.g. am144296 from user
-      $this->username = $this->moodleUser->username;
-      // grab the first name
-      $this->firstname = $this->moodleUser->firstname;
-      // grab the last name
-      $this->lastname = $this->moodleUser->lastname;
-      // Create fullname var
-      $this->fullname = $this->firstname .' '. $this->lastname;
-      $userIsSet = true;
-      } else {
-        return false;
-      }
-    // else, if no session found, not logged in
-    } else {
-      // throw new \Exception('No user set');
-    } 
-  } // end of constructor
+        // if there is a Moodle Session, i.e. logged into Moodle
+        if (isset($_COOKIE['MoodleSession'])) {
+            // Check that we have a moodle session
+            if ($this->moodleUser = $moodle->getuser($_COOKIE['MoodleSession'])) {
+                // Set this Moodle user to user in session cookie
+                $this->moodleUser = $moodle->getuser($_COOKIE['MoodleSession']);
+                // grab the uid from user
+                $this->id = $this->moodleUser->id;
+                // grab the LDAP username, e.g. am144296 from user
+                $this->username = $this->moodleUser->username;
+                // grab the first name
+                $this->firstname = $this->moodleUser->firstname;
+                // grab the last name
+                $this->lastname = $this->moodleUser->lastname;
+                // Create fullname var
+                $this->fullname = $this->firstname .' '. $this->lastname;
+                $userIsSet = true;
+            } else {
+                return false;
+            }
+        // else, if no session found, not logged in
+        } else {
+        // throw new \Exception('No user set');
+        }
+    } // end of constructor
 
-  public function getMoodleuser(){
-    return $this->moodleUser;
-  }
+    public function getMoodleuser()
+    {
+        return $this->moodleUser;
+    }
 
-  public function getId(){
-    return $this->id;
-  }
+    public function getId()
+    {
+        return $this->id;
+    }
 
-  public function getUsername(){
-    return $this->username;
-  }
+    public function getUsername()
+    {
+        return $this->username;
+    }
 
-  public function getFirstname(){
-    return $this->firstname;
-  }
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
 
-  public function getLastname(){
-    return $this->lastname;
-  }
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
 
-  public function getFullname(){
-    return $this->fullname;
-  }
-
-} // End class definition
-?>
+    public function getFullname()
+    {
+        return $this->fullname;
+    }
+}
