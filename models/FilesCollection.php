@@ -24,7 +24,14 @@ class FilesCollection
             echo '<p><em>Moodle session id <strong>not found</strong></em</p>';
             return false;
         }
-        $url = 'https://webservices.fxplus.ac.uk/thelearningspace/bafinaff.json';
+
+        $baseUrl = 'https://webservices.fxplus.ac.uk/thelearningspace/';
+        $subStrings = array(
+            $baseUrl,
+            $courseCode,
+            ".json"
+        );
+        $url = join($subStrings);
         $this->loadFiles($url);
         $this->processFiles($this->files);
     }

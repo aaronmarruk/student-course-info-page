@@ -23,17 +23,43 @@ class Course
     public $welcomeName;
     public $welcomePhoto;
     public $welcomeJobTitle;
+    public $courseData;
 
     public function __construct($user = null, $moodle = null)
     {
-        $username = $user->getUsername();
-        $userData = $this->loadUserData($username);
-        $this->courseName = $userData["course"];
-        $courseData = $this->getJsonData(
-            "https://webservices.fxplus.ac.uk/thelearningspace/bafinaff.json"
-        );
-        $this->loadWelcomeMsg($courseData);
-        $this->loadCollections();
+        $ldapUserName = $user->getLdapUserName();
+        echo "This is ldapuserName";
+        k($ldapUserName);
+        $userId = $user->getId();
+
+        // Returns: Course code, course name, student sits id
+        // personal tutor
+        $this->courseData = $this->loadCourseData($ldapUserName);
+        $this->courseName = $this->courseData["course"];
+
+        $this->courseCode = $this->courseData["course"]["coursecode"];
+
+        $baseUrl = "https://webservices.fxplus.ac.uk/scipstu/handler.ashx?u=";
+
+        // $subStrings = array(
+        //     $baseUrl,
+        //     $this->courseCode
+        // );
+        // $courseDataUrlString = join($subStrings);
+
+        // //
+        // $courseData = $this->getJsonData(
+        //     $courseDataUrlString
+        // );
+
+        echo "This is courseData";
+        k($this->courseData);
+
+        $this->loadWelcomeMsg($this->courseData);
+        $this->loadCollections($this->courseData);
+
+        echo "this is the files collection";
+        k($this->filesCollection);
     }
     // Private functions
     private function getJsonData($url)
@@ -53,31 +79,52 @@ class Course
             $this->moduleCollection->getModules()
         );
     }
-    private function loadWelcomeMsg($jsonData2)
+    private function loadWelcomeMsg($courseData)
     {
         // Get the welcome info, including course leader details
-        $this->welcomeMessage = $jsonData2["welcome"]["message"];
-        $this->welcomeName = $jsonData2["welcome"]["name"];
-        $this->welcomePhoto = $jsonData2["welcome"]["photo"];
-        $this->welcomeJobtitle = $jsonData2["welcome"]["title"];
+        if (isset($courseData["welcome"]["message"])) {
+            $this->welcomeMessage = $courseData["welcome"]["message"];
+        } else {
+            $this->welcomeMessage = null;
+        }
+        if (isset($courseData["welcome"]["name"])) {
+            $this->welcomeName = $courseData["welcome"]["name"];
+        } else {
+            $this->welcomeName = null;
+        }
+        if (isset($courseData["welcome"]["photo"])) {
+            $this->welcomePhoto = $courseData["welcome"]["photo"];
+        } else {
+            $this->welcomePhoto = null;
+        }
+        if (isset($courseData["welcome"]["title"])) {
+            $this->welcomeJobtitle = $courseData["welcome"]["title"];
+        } else {
+            $this->welcomeJobtitle = null;
+        }
+        
     }
-    private function loadUserData($username)
+    private function loadCourseData($ldapUserName)
     {
+        // Accepts an LDAP username
+        // Returns: Course code, course name, student sits id
+        // personal tutor
+
         // Get the user data
         // i.e. course, course code, tuto
         $baseUrl = 'https://webservices.fxplus.ac.uk/scipstu/handler.ashx?u=';
-        echo "ins loadUserData";
+        echo "ins loadcourseData";
         $subStrings = array(
             $baseUrl,
-            "R1173293"
+            $ldapUserName
         );
-        $userDataUrlString = join($subStrings);
-        // Get json data by passing in userDataUrlString
+        $courseDataUrlString = join($subStrings);
+        // Get json data by passing in courseDataUrlString
         $jsonData = $this->getJsonData(
-            $userDataUrlString
+            $courseDataUrlString
         );
         
-        echo "ins loadUserData";
+        echo "ins loadcourseData";
         k($jsonData);
 
         return $jsonData;
