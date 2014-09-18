@@ -41,17 +41,6 @@ class Course
 
         $baseUrl = "https://webservices.fxplus.ac.uk/scipstu/handler.ashx?u=";
 
-        // $subStrings = array(
-        //     $baseUrl,
-        //     $this->courseCode
-        // );
-        // $courseDataUrlString = join($subStrings);
-
-        // //
-        // $courseData = $this->getJsonData(
-        //     $courseDataUrlString
-        // );
-
         echo "This is courseData";
         k($this->courseData);
 
