@@ -27,8 +27,6 @@ class JsonApi
 
         $r = curl_exec($curlSession);
 
-        k($r);
-
         // $r = preg_replace('/\s+/', '',$r);
 
         $r = json_decode($r, true);

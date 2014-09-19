@@ -24,14 +24,8 @@ class FilesCollection
             echo '<p><em>Moodle session id <strong>not found</strong></em</p>';
             return false;
         }
-
-        $baseUrl = 'https://webservices.fxplus.ac.uk/thelearningspace/';
-        $subStrings = array(
-            $baseUrl,
-            $courseCode,
-            ".json"
-        );
-        $url = join($subStrings);
+        $baseUrl = Config::read('records.vle');
+        $url = $baseUrl . $courseCode .'.json';
         $this->loadFiles($url);
         $this->processFiles($this->files);
     }

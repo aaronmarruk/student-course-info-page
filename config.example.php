@@ -2,21 +2,33 @@
 
 use lib\Config;
 
-include 'moodlequery/config.php'; 
-
 // DB Config
-// Config::write('db.host', 'localhost');
-// Config::write('db.type', 'mysql');
+// Config::write('db.host', '');
+// Config::write('db.type', '');
 // Config::write('db.port', '');
-// Config::write('db.basename', 'moodle_26');
-// Config::write('db.user', 'moodle_26');
-// Config::write('db.password', 'm768zVWyH3c5Hyez');
+// Config::write('db.basename', '');
+// Config::write('db.user', '');
+// Config::write('db.password', '');
 
+Config::write('moodle.config.path', '');
+// run the moodle config.php to create global $CFG object
+require_once(Config::read('moodle.config.path'));
 Config::write('moodle.config', $CFG);
+// tidy up global variable
+unset($CFG);
 
-Config::write('site.root', 'http://localhost:8888/learningspace');
-Config::write('site.root.scip', 'http://localhost:8888/learningspace/rdrctr');
-Config::write('site.logout', 'http://localhost:8888/learningspace/logout');
+Config::write('site.root', '');
+Config::write('site.root.scip', '');
+Config::write('site.logout', '');
 
 // Project Config
-Config::write('path', 'http://localhost/learningspace/rdrctr');
+Config::write('path', '');
+
+// API
+Config::write('records.sits', '');
+Config::write('records.student', '');
+Config::write('records.vle', '');
+
+// regex to remove config details for config.example.php (eg in Sublime): 
+// , '[\w_\/:=\?.-]*'\)
+// , '')

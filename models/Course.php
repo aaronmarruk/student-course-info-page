@@ -28,27 +28,17 @@ class Course
     public function __construct($user = null, $moodle = null)
     {
         $ldapUserName = $user->getLdapUserName();
-        echo "This is ldapuserName";
-        k($ldapUserName);
         $userId = $user->getId();
 
         // Returns: Course code, course name, student sits id
         // personal tutor
-        $this->courseData = $this->loadCourseData($ldapUserName);
-        $this->courseName = $this->courseData["course"];
-
+        $this->courseData = $this->loadCourseData($ldapUserName, Config::read('records.sits'));
+        $this->courseName = $this->courseData["course"]["coursename"];
+        
         $this->courseCode = $this->courseData["course"]["coursecode"];
-
-        $baseUrl = "https://webservices.fxplus.ac.uk/scipstu/handler.ashx?u=";
-
-        echo "This is courseData";
-        k($this->courseData);
 
         $this->loadWelcomeMsg($this->courseData);
         $this->loadCollections($this->courseData);
-
-        echo "this is the files collection";
-        k($this->filesCollection);
     }
     // Private functions
     private function getJsonData($url)
@@ -93,29 +83,17 @@ class Course
         }
         
     }
-    private function loadCourseData($ldapUserName)
+    private function loadCourseData($ldapUserName, $baseUrl)
     {
         // Accepts an LDAP username
         // Returns: Course code, course name, student sits id
         // personal tutor
-
         // Get the user data
         // i.e. course, course code, tuto
-        $baseUrl = 'https://webservices.fxplus.ac.uk/scipstu/handler.ashx?u=';
-        echo "ins loadcourseData";
-        $subStrings = array(
-            $baseUrl,
-            $ldapUserName
-        );
-        $courseDataUrlString = join($subStrings);
-        // Get json data by passing in courseDataUrlString
+        // Get json data
         $jsonData = $this->getJsonData(
-            $courseDataUrlString
+            $baseUrl.$ldapUserName
         );
-        
-        echo "ins loadcourseData";
-        k($jsonData);
-
         return $jsonData;
     }
     // Getters
