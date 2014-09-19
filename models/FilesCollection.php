@@ -12,19 +12,7 @@ class FilesCollection
     {
         // Get the current app instance
         $app = \Slim\Slim::getInstance();
-        // If we have a session, i.e. user is signed in
-        if (isset($_COOKIE['MoodleSession'])) {
-            // Check to see if moodle has been passed in,
-            // if not we use the app instance varaiable (latter preferd)
-            if ($moodle == null) {
-                $moodle = $app->moodle;
-            }
-        // If no session, user needs to sign
-        } else {
-            echo '<p><em>Moodle session id <strong>not found</strong></em</p>';
-            return false;
-        }
-
+        
         $baseUrl = 'https://webservices.fxplus.ac.uk/thelearningspace/';
         $subStrings = array(
             $baseUrl,
@@ -32,6 +20,7 @@ class FilesCollection
             ".json"
         );
         $url = join($subStrings);
+        k($url);
         $this->loadFiles($url);
         $this->processFiles($this->files);
     }
@@ -43,6 +32,7 @@ class FilesCollection
     // Private Functions
     private function loadFiles($url)
     {
+        k($url);
         // Get Json from Sharepoint API (Fake url @ present)
         $jsonUrl = $url;
         // Get a JSON API

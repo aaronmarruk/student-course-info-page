@@ -18,18 +18,7 @@ class UserDetails
     {
         // Get the current app instance
         $app = \Slim\Slim::getInstance();
-        // If we have a session, i.e. user is signed in
-        if (isset($_COOKIE['MoodleSession'])) {
-            // Check to see if moodle has been passed in,
-            // if not we use the app instance varaiable (latter preferd)
-            // if ($moodle == NULL){
-            //   $moodle = $app->moodle;
-            // }
-            // If no session, user needs to sign
-        } else {
-            echo '<p><em>Moodle session id <strong>not found</strong></em</p>';
-            return false;
-        }
+
         // Get Json from Sharepoint API (Fake url @ present)
         $soapUrl = $soapUrl;
         // Get a JSON API

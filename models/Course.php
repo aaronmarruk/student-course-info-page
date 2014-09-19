@@ -27,7 +27,15 @@ class Course
 
     public function __construct($user = null, $moodle = null)
     {
+        // Get the current app instance
+        $app = \Slim\Slim::getInstance();
+        // Returns moodle config object
+        $moodle = $app->moodle;
+        // Returns moodle config object
+        $user = $app->user;
+
         $ldapUserName = $user->getLdapUserName();
+        
         echo "This is ldapuserName";
         k($ldapUserName);
         $userId = $user->getId();
@@ -35,34 +43,42 @@ class Course
         // Returns: Course code, course name, student sits id
         // personal tutor
         $this->courseData = $this->loadCourseData($ldapUserName);
-        $this->courseName = $this->courseData["course"];
-
-        $this->courseCode = $this->courseData["course"]["coursecode"];
-
-        $baseUrl = "https://webservices.fxplus.ac.uk/scipstu/handler.ashx?u=";
-
         echo "This is courseData";
         k($this->courseData);
+        // Returns e.g BA(Hons) Music
+        $this->courseName = $this->courseData["course"];
+        // Returns the sits course code
+        $this->courseCode = $this->courseData["course"]["coursecode"];
 
         $this->loadWelcomeMsg($this->courseData);
-        $this->loadCollections($this->courseData);
+        $this->loadCollections($moodle, $user, $this->courseCode);
 
         echo "this is the files collection";
         k($this->filesCollection);
+        echo "this is the readingsCollection";
+        k($this->readingsCollection);
+        echo "this is the moduleCollection";
+        k($this->moduleCollection);
+
     }
     // Private functions
     private function getJsonData($url)
     {
+        // Accepts a url with which to make an api call
+        // Returns PHP array – i.e
         $api = new JsonApi();
         // Get json data by passing in url
         $data = $api->getJson($url);
         return $data;
     }
-    private function loadCollections()
+    private function loadCollections($moodle, $user, $courseCode)
     {
-        $this->moduleCollection = new ModuleCollection();
+        $this->moduleCollection = new ModuleCollection(
+            $moodle,
+            $user
+        );
         $this->filesCollection = new FilesCollection(
-            $this->courseCode
+            $courseCode
         );
         $this->readingsCollection = new ReadingsCollection(
             $this->moduleCollection->getModules()

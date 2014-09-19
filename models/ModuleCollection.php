@@ -17,27 +17,10 @@ class ModuleCollection
     // protected $core;
     public $modules;
 
-    public function __construct($user = null, $moodle = null)
+    public function __construct($moodle = null, $user = null)
     {
         // Get the current app instance
         $app = \Slim\Slim::getInstance();
-        // If we have a session, i.e. user is signed in
-        if (isset($_COOKIE['MoodleSession'])) {
-            // Check to see if moodle has been passed in,
-            // if not we use the app instance varaiable (latter preferd)
-            if ($moodle == null) {
-                $moodle = $app->moodle;
-            }
-            // Check to see if user has been passed in,
-            // if not we use the app instance variable (latter preferd)
-            if ($user == null) {
-                $user = $app->user;
-            }
-            // If no session, user needs to sign
-        } else {
-            echo '<p><em>Moodle session id <strong>not found</strong></em</p>';
-            return false;
-        }
         // Get the modules
         $this->modules = $moodle->getenrolments($user);
         // Now we will process the modules, add a
@@ -56,6 +39,9 @@ class ModuleCollection
     ////////////////
     private function processModuleNames()
     {
+        // Returns a more nicely formatted module name,
+        // removing module code if present, and storing
+        // code for later use
         // Iterator
         $i = 0;
         // for each course in the courselist
@@ -63,23 +49,15 @@ class ModuleCollection
             // k($module);
             // if the module has an id number
             if ($module->idnumber) {
-            // module id, prefix to most module fullnames
+                // module id, prefix to most module fullnames
                 $id = $module->idnumber . " ";
                 // the module fullname
                 $name = $module->fullname;
                 // Remove the ID prefix from module name
-                $newName = str_replace($id, "", $name);
-                // if there is a reading list for the module
-                // if( (array) $aspire->modulelists($module)[0] != FALSE ){
-                //   // get the reading list object from aspire and cast as array
-                //   $readinglists = (array) $aspire->modulelists($module);
-                //   // store readinglist in lists array using module name as key
-                //   $aspireLists[$module->fullname] = $readinglists;
-                // }
-                // Update the module fullname. i.e. without id prefix
-                // Strip html tags from the module summary
+                $readableName = str_replace($id, "", $name);
+                $module->readableName = $readableName;
             }
-            $module->newName = $newName;
+            $module->readableName = $module->fullname;
             // Strip html tags from summary
             $module->summary = strip_tags($module->summary);
             // Strip ï¿½

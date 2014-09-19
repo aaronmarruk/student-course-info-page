@@ -19,13 +19,13 @@
   {# use to check repitition inside for loop. #}
   {# Skip if is same coursename as prev #}
  
-  {% set fullname = '' %}
+  {% set readableName = '' %}
 
-  {# Define fullname var that we will #}
+  {# Define readableName var that we will #}
   {% for module in modules %}
-    {% if module.fullname != fullname %}
+    {% if module.readableName != readableName %}
       
-      {% set name = module.newName %}
+      {% set name = module.readableName %}
 
       <li class="module-list__module">
 
@@ -33,7 +33,7 @@
           <h5 class="module-list__code badge">{{ module.idnumber }}</h5>
         {% endif %}
 
-        <h2 class="module-list__title"><a href="{{ siteRoot ~ '/course/view.php?id=' ~ module.id }}">{{ module.newName }}</a></h2>
+        <h2 class="module-list__title"><a href="{{ siteRoot ~ '/course/view.php?id=' ~ module.id }}">{{ module.readableName }}</a></h2>
         
         {% if module.summary != "" %}
         <p class="module-list__item-desc">
@@ -42,9 +42,9 @@
         {% endif %}
 
         {# if there is a reading list for this module #}
-        {% if readingLists[module.fullname][0].name != "" %}
+        {% if readingLists[module.readableName][0].name != "" %}
           
-          <a class="module-list__readings-link" href="{{ readingLists[module.fullname][0].url }}"><span><i class="fa fa-book"></i> Reading list</span></a>
+          <a class="module-list__readings-link" href="{{ readingLists[module.readableName][0].url }}"><span><i class="fa fa-book"></i> Reading list</span></a>
 
         {% endif %}
            

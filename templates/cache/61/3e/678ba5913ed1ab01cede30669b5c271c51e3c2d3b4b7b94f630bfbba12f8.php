@@ -48,7 +48,7 @@ class __TwigTemplate_613e678ba5913ed1ab01cede30669b5c271c51e3c2d3b4b7b94f630bfbb
         echo " 
   ";
         // line 22
-        $context["fullname"] = "";
+        $context["readableName"] = "";
         // line 23
         echo "
   ";
@@ -59,12 +59,12 @@ class __TwigTemplate_613e678ba5913ed1ab01cede30669b5c271c51e3c2d3b4b7b94f630bfbb
         foreach ($context['_seq'] as $context["_key"] => $context["module"]) {
             // line 26
             echo "    ";
-            if (($this->getAttribute((isset($context["module"]) ? $context["module"] : null), "fullname") != (isset($context["fullname"]) ? $context["fullname"] : null))) {
+            if (($this->getAttribute((isset($context["module"]) ? $context["module"] : null), "readableName") != (isset($context["readableName"]) ? $context["readableName"] : null))) {
                 // line 27
                 echo "      
       ";
                 // line 28
-                $context["name"] = $this->getAttribute((isset($context["module"]) ? $context["module"] : null), "newName");
+                $context["name"] = $this->getAttribute((isset($context["module"]) ? $context["module"] : null), "readableName");
                 // line 29
                 echo "
       <li class=\"module-list__module\">
@@ -84,7 +84,7 @@ class __TwigTemplate_613e678ba5913ed1ab01cede30669b5c271c51e3c2d3b4b7b94f630bfbb
                 // line 36
                 echo twig_escape_filter($this->env, (((isset($context["siteRoot"]) ? $context["siteRoot"] : null) . "/course/view.php?id=") . $this->getAttribute((isset($context["module"]) ? $context["module"] : null), "id")), "html", null, true);
                 echo "\">";
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["module"]) ? $context["module"] : null), "newName"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["module"]) ? $context["module"] : null), "readableName"), "html", null, true);
                 echo "</a></h2>
         
         ";
@@ -104,12 +104,12 @@ class __TwigTemplate_613e678ba5913ed1ab01cede30669b5c271c51e3c2d3b4b7b94f630bfbb
         ";
                 // line 45
                 echo "        ";
-                if (($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["readingLists"]) ? $context["readingLists"] : null), $this->getAttribute((isset($context["module"]) ? $context["module"] : null), "fullname"), array(), "array"), 0, array(), "array"), "name") != "")) {
+                if (($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["readingLists"]) ? $context["readingLists"] : null), $this->getAttribute((isset($context["module"]) ? $context["module"] : null), "readableName"), array(), "array"), 0, array(), "array"), "name") != "")) {
                     // line 46
                     echo "          
           <a class=\"module-list__readings-link\" href=\"";
                     // line 47
-                    echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["readingLists"]) ? $context["readingLists"] : null), $this->getAttribute((isset($context["module"]) ? $context["module"] : null), "fullname"), array(), "array"), 0, array(), "array"), "url"), "html", null, true);
+                    echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["readingLists"]) ? $context["readingLists"] : null), $this->getAttribute((isset($context["module"]) ? $context["module"] : null), "readableName"), array(), "array"), 0, array(), "array"), "url"), "html", null, true);
                     echo "\"><span><i class=\"fa fa-book\"></i> Reading list</span></a>
 
         ";

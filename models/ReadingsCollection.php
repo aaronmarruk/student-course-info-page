@@ -54,10 +54,11 @@ class ReadingsCollection
                     // store readinglist in lists array using module name as key
                     $this->readings[$module->fullname] = $aspireList;
                 }
-            // Update the module fullname. i.e. without id prefix
-            // Strip html tags from the module summary
+                // Update the module fullname. i.e. without id prefix
+                // Strip html tags from the module summary
+                $module->newName = $newName;
             }
-            $module->newName = $newName;
+            $module->newName = $module->fullname;
             // Strip html tags from summary
             $module->summary = strip_tags($module->summary);
             // Strip ï¿½

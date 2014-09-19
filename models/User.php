@@ -20,12 +20,10 @@ class User
 
     public function __construct($userIsSet = false)
     {
-
         // Get the current app instance
         $app = \Slim\Slim::getInstance();
-
+        // Returns moodle config
         $moodle = $app->moodle;
-
         // if there is a Moodle Session, i.e. logged into Moodle
         if (isset($_COOKIE['MoodleSession'])) {
             // Check that we have a moodle session

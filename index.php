@@ -28,12 +28,12 @@ foreach ($routers as $router) {
 $app->container->singleton('moodle', function () {
     // Get moodle config, i.e. $CFG
     $cfg = Config::read('moodle.config');
-    // Get instance of MoodleQuery, i.e. $CFG
+    // Returns instance of MoodleQuery, i.e. $CFG
     return new moodle\MoodleQuery($cfg);
 });
 // Define user resource
 $app->container->singleton('user', function ($moodle) {
-    // Get instance of user, passing in moodle instance
+    // Returns instance of user, passing in moodle instance
     return new models\User($moodle);
 });
 // Define user resource
