@@ -2,3 +2,4 @@
 config.php
 moodlequery
 viewcache
+composer.lock
