@@ -6,7 +6,7 @@ use lib\Config;
 use lib\JsonApi;
 use \aspire;
 
-require_once('moodlequery/class.aspireapi.php');
+require_once('vendor/ucfalmouth/moodlequery/class.aspireapi.php');
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);

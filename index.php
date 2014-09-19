@@ -5,7 +5,7 @@ use lib\Config;
 
 require 'vendor/autoload.php';
 require 'config.php';
-require_once('moodlequery/class.moodlequery.php');
+require_once('vendor/ucfalmouth/moodlequery/class.moodlequery.php');
 
 // Setup custom Twig view
 $twigView = new \Slim\Views\Twig();
