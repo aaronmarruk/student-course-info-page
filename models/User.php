@@ -10,7 +10,6 @@ error_reporting(-1);
 
 class User
 {
-
     public $moodleUser;
     public $id;
     public $ldapUserName;

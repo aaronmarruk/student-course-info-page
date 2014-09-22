@@ -11,7 +11,6 @@ error_reporting(-1);
 
 class PersonalTutor
 {
-
     public $email;
     public $name;
     public $photo;
@@ -24,13 +23,14 @@ class PersonalTutor
         $app = \Slim\Slim::getInstance();
         // Get the current user
         $username = $app->user->ldapUserName;
-        $userInfoUrlBase = 'http://example.com/';
+        //$userInfoUrlBase = 'http://example.com/';
         // append username to url base so we can query info for user
-        $userInfoUrl = $userInfoUrlBase . $username;
+        //$userInfoUrl = $userInfoUrlBase . $username;
         // Create a fake url to test ryans api
+
         $baseUrl = Config::read('records.sits');
         // Get a JSON API
-        $url = $baseUrl . $app->user->getLdapUserName();
+        $url = $baseUrl . $username;
         $jsonApi = new JsonApi();
         // Get json data by passing in url
         $jsonData = $jsonApi->getJson($url);

@@ -2,7 +2,7 @@
 
 use \moodle;
 use lib\Config;
-
+ 
 require 'vendor/autoload.php';
 require 'config.php';
 require_once('vendor/ucfalmouth/moodlequery/class.moodlequery.php');
