@@ -12,15 +12,12 @@ class FilesCollection
     {
         // Get the current app instance
         $app = \Slim\Slim::getInstance();
+
         
-        $baseUrl = 'https://webservices.fxplus.ac.uk/thelearningspace/';
-        $subStrings = array(
-            $baseUrl,
-            $courseCode,
-            ".json"
-        );
-        $url = join($subStrings);
+        $baseUrl = Config::read('records.vle');
+        $url = $baseUrl . $courseCode .'.json';
         k($url);
+
         $this->loadFiles($url);
         $this->processFiles($this->files);
     }

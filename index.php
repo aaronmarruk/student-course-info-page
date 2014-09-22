@@ -42,7 +42,7 @@ $app->container->singleton('userDetails', function () {
     // Get instance of user, passing in moodle instance
     // $studentid = $app->user->getId();
     $studentid = '157580';
-    $soapUrl = 'https://webservices.fxplus.ac.uk/LearningSpaceStudentFeed/WebService.asmx/GetStudents';
+    $soapUrl = Config::read('records.student');
     return new lib\SoapApi($studentid, $soapUrl);
 });
 // Before the router is run

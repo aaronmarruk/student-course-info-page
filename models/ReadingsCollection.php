@@ -30,7 +30,7 @@ class ReadingsCollection
             }
             // If no session, user needs to sign
         } else {
-                echo '<p><em>Moodle session id <strong>not found</strong></em</p>';
+            echo '<p><em>Moodle session id <strong>not found</strong></em</p>';
             return false;
         }
         // Get the aspire config from Moodle object
