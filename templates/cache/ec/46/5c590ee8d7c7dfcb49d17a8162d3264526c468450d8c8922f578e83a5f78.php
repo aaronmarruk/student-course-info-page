@@ -16,15 +16,13 @@ class __TwigTemplate_ec465c590ee8d7c7dfcb49d17a8162d3264526c468450d8c8922f578e83
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "        </div>
+        echo "          <!-- <div class=\"google-form\">
+            <iframe src=\"https://docs.google.com/forms/d/1Oa0lwT_scMTWH10lkD4oLBiIZ01yK6kCzxQfMXeuCfg/viewform?embedded=true\" width=\"760\" height=\"500\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe>
+          </div> -->
+        </div>
       </section>
 
       <aside id=\"region-pre\" class=\"span4 block-region region-content\">
-        
-
-
-
-
           <!-- <div id=\"inst1290\" class=\"block_section  block list_block\" role=\"complementary\" aria-labelledby=\"instance-1290-header\">
             <div class=\"header\">
               <div class=\"title\" id=\"yui_3_7_3_2_1410273634501_217\">
@@ -61,25 +59,7 @@ class __TwigTemplate_ec465c590ee8d7c7dfcb49d17a8162d3264526c468450d8c8922f578e83
               </ul>
             </div> -->
           </div><!-- End block section -->
-
-
-
-
-
-
-
-
       </aside>
-
-
-
-
-
-
-
-
-
-
     </div>
   </div>
 </div>
@@ -102,19 +82,19 @@ class __TwigTemplate_ec465c590ee8d7c7dfcb49d17a8162d3264526c468450d8c8922f578e83
 </footer>
 <!-- End of body html -->
 <script type=\"text/javascript\" src=\"";
-        // line 86
+        // line 66
         echo twig_escape_filter($this->env, (isset($context["scip"]) ? $context["scip"] : null), "html", null, true);
         echo "/public/js/jquery-1.8.2.min.js\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 87
+        // line 67
         echo twig_escape_filter($this->env, (isset($context["scip"]) ? $context["scip"] : null), "html", null, true);
         echo "/public/js/jquery.sidr.min.js\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 88
+        // line 68
         echo twig_escape_filter($this->env, (isset($context["scip"]) ? $context["scip"] : null), "html", null, true);
         echo "/public/js/ls-footer.js\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 89
+        // line 69
         echo twig_escape_filter($this->env, (isset($context["scip"]) ? $context["scip"] : null), "html", null, true);
         echo "/public/js/bootstrap.js\"></script>
 <script type=\"text/javascript\">
@@ -138,6 +118,6 @@ class __TwigTemplate_ec465c590ee8d7c7dfcb49d17a8162d3264526c468450d8c8922f578e83
 
     public function getDebugInfo()
     {
-        return array (  114 => 88,  110 => 87,  93 => 61,  35 => 12,  26 => 6,  303 => 137,  289 => 125,  283 => 124,  272 => 122,  267 => 121,  263 => 120,  256 => 115,  252 => 113,  240 => 107,  234 => 104,  227 => 100,  223 => 99,  220 => 98,  216 => 97,  211 => 94,  209 => 93,  204 => 90,  196 => 85,  192 => 84,  188 => 83,  184 => 82,  176 => 76,  174 => 75,  169 => 72,  164 => 70,  160 => 69,  156 => 68,  152 => 67,  147 => 66,  145 => 65,  135 => 57,  129 => 56,  124 => 54,  118 => 89,  112 => 47,  109 => 46,  106 => 86,  103 => 43,  97 => 40,  94 => 39,  92 => 38,  85 => 36,  82 => 35,  76 => 33,  74 => 32,  69 => 29,  67 => 28,  64 => 27,  61 => 32,  56 => 25,  53 => 27,  51 => 22,  48 => 21,  46 => 20,  44 => 19,  27 => 4,  24 => 3,  22 => 2,  19 => 1,);
+        return array (  98 => 69,  94 => 68,  90 => 67,  86 => 66,  19 => 1,);
     }
 }

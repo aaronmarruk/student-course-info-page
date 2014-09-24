@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    // Android menu hack
+    // This is a hack to enable scrolling of mobile
+    // menu in android
     function e() {
         try {
             document.createEvent("TouchEvent");
@@ -7,7 +10,6 @@ $(document).ready(function () {
             return !1
         }
     }
-
     function t(t) {
         if (e()) {
             var n = document.getElementById(t),
@@ -22,9 +24,7 @@ $(document).ready(function () {
             }, !1)
         }
     };
-
-});
-$(document).ready(function () {
+    // END Android menu hack
 
     $("ul.nav li.dropdown").hover(function () {
         $(this).find(".dropdown-menu").stop(!0, !0).delay(200).show()
@@ -47,4 +47,10 @@ $(document).ready(function () {
         $(".brand").fadeToggle();
         e.preventDefault()
     }); 
+
+    (function calculateIframeRatio(){
+        echo "Hi Aaron";
+        var iFrame = $('#region-main').find('.google-form iframe');
+        console.log(iFrame);
+    })();
 });

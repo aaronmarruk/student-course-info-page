@@ -26,12 +26,16 @@ class __TwigTemplate_aeea64667ebc77c3538e67a37f01b6875772910979e9450afda9cd3f30f
         echo twig_escape_filter($this->env, (isset($context["scip"]) ? $context["scip"] : null), "html", null, true);
         echo "/public/css/style.css\">
 
+<!-- Typekit -->
+<script type=\"text/javascript\" src=\"//use.typekit.net/ull6bqj.js\"></script>
+<script type=\"text/javascript\">try{Typekit.load();}catch(e){}</script>
+
 <!-- FONT AWESOME -->
 <link href=\"//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css\" rel=\"stylesheet\">
 
 <!-- SCIP PAGE CSS -->
 <link rel=\"stylesheet\" type=\"text/css\" href=\"";
-        // line 12
+        // line 16
         echo twig_escape_filter($this->env, (isset($context["scip"]) ? $context["scip"] : null), "html", null, true);
         echo "/public/css/scip.css\">
 
@@ -49,7 +53,7 @@ class __TwigTemplate_aeea64667ebc77c3538e67a37f01b6875772910979e9450afda9cd3f30f
   <nav role=\"navigation\" class=\"navbar-inner navbar-inverse\">
     <div class=\"container-fluid\">
       <a class=\"brand\" href=\"";
-        // line 27
+        // line 31
         echo twig_escape_filter($this->env, (isset($context["scip"]) ? $context["scip"] : null), "html", null, true);
         echo "\">Learning Space</a>
       <div id=\"mobile-header\">
@@ -57,7 +61,7 @@ class __TwigTemplate_aeea64667ebc77c3538e67a37f01b6875772910979e9450afda9cd3f30f
       </div>
       <ul class=\"nav\">
         <li><a href=\"";
-        // line 32
+        // line 36
         echo twig_escape_filter($this->env, (isset($context["scip"]) ? $context["scip"] : null), "html", null, true);
         echo "\">My Modules</a></li>
 
@@ -89,7 +93,7 @@ class __TwigTemplate_aeea64667ebc77c3538e67a37f01b6875772910979e9450afda9cd3f30f
         <li><a href=\"http://etsupport.freshdesk.com/support/solutions/158481\">Help</a></li> 
         <li></li>
         <li class=\"dropdown\"><a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"";
-        // line 61
+        // line 65
         echo twig_escape_filter($this->env, (isset($context["siteRoot"]) ? $context["siteRoot"] : null), "html", null, true);
         echo "/user/profile.php?id=";
         echo twig_escape_filter($this->env, (isset($context["userId"]) ? $context["userId"] : null), "html", null, true);
@@ -131,6 +135,6 @@ class __TwigTemplate_aeea64667ebc77c3538e67a37f01b6875772910979e9450afda9cd3f30f
 
     public function getDebugInfo()
     {
-        return array (  93 => 61,  35 => 12,  26 => 6,  303 => 137,  289 => 125,  283 => 124,  272 => 122,  267 => 121,  263 => 120,  256 => 115,  252 => 113,  240 => 107,  234 => 104,  227 => 100,  223 => 99,  220 => 98,  216 => 97,  211 => 94,  209 => 93,  204 => 90,  196 => 85,  192 => 84,  188 => 83,  184 => 82,  176 => 76,  174 => 75,  169 => 72,  164 => 70,  160 => 69,  156 => 68,  152 => 67,  147 => 66,  145 => 65,  135 => 57,  129 => 56,  124 => 54,  118 => 50,  112 => 47,  109 => 46,  106 => 45,  103 => 43,  97 => 40,  94 => 39,  92 => 38,  85 => 36,  82 => 35,  76 => 33,  74 => 32,  69 => 29,  67 => 28,  64 => 27,  61 => 32,  56 => 25,  53 => 27,  51 => 22,  48 => 21,  46 => 20,  44 => 19,  27 => 4,  24 => 3,  22 => 2,  19 => 1,);
+        return array (  65 => 36,  57 => 31,  39 => 16,  26 => 6,  296 => 130,  289 => 125,  283 => 124,  272 => 122,  267 => 121,  263 => 120,  256 => 115,  252 => 113,  240 => 107,  234 => 104,  227 => 100,  223 => 99,  220 => 98,  216 => 97,  211 => 94,  209 => 93,  204 => 90,  196 => 85,  192 => 84,  188 => 83,  184 => 82,  176 => 76,  174 => 75,  169 => 72,  164 => 70,  160 => 69,  156 => 68,  152 => 67,  147 => 66,  145 => 65,  135 => 57,  129 => 56,  124 => 54,  118 => 50,  112 => 47,  109 => 46,  106 => 45,  103 => 43,  97 => 65,  94 => 39,  92 => 38,  85 => 36,  82 => 35,  76 => 33,  74 => 32,  69 => 29,  67 => 28,  64 => 27,  61 => 26,  56 => 25,  53 => 23,  51 => 22,  48 => 21,  46 => 20,  44 => 19,  27 => 4,  24 => 3,  22 => 2,  19 => 1,);
     }
 }
