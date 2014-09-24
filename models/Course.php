@@ -80,22 +80,22 @@ class Course
         
         // Get the welcome info, including course leader details
         if (isset($jsonData["welcome"]["message"])) {
-            $this->welcomeMessage = $courseData["welcome"]["message"];
+            $this->welcomeMessage = $jsonData["welcome"]["message"];
         } else {
             $this->welcomeMessage = null;
         }
         if (isset($jsonData["welcome"]["name"])) {
-            $this->welcomeName = $courseData["welcome"]["name"];
+            $this->welcomeName = $jsonData["welcome"]["name"];
         } else {
             $this->welcomeName = null;
         }
         if (isset($jsonData["welcome"]["photo"])) {
-            $this->welcomePhoto = $courseData["welcome"]["photo"];
+            $this->welcomePhoto = $jsonData["welcome"]["photo"];
         } else {
             $this->welcomePhoto = null;
         }
         if (isset($jsonData["welcome"]["title"])) {
-            $this->welcomeJobtitle = $courseData["welcome"]["title"];
+            $this->welcomeJobtitle = $jsonData["welcome"]["title"];
         } else {
             $this->welcomeJobtitle = null;
         }

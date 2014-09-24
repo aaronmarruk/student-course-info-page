@@ -182,10 +182,12 @@ class __TwigTemplate_613e678ba5913ed1ab01cede30669b5c271c51e3c2d3b4b7b94f630bfbb
             // line 81
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["personalTutor"]) ? $context["personalTutor"] : null), "jobTitle"), "html", null, true);
             echo "</strong></li>
-          <li class=\"contact-cards__text\">";
+          <li class=\"contact-cards__text\"><a href=\"mailto:";
             // line 82
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["personalTutor"]) ? $context["personalTutor"] : null), "email"), "html", null, true);
-            echo "</li>
+            echo "\">";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["personalTutor"]) ? $context["personalTutor"] : null), "email"), "html", null, true);
+            echo "</a></li>
           <li class=\"contact-cards__text\">";
             // line 83
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["personalTutor"]) ? $context["personalTutor"] : null), "telephone"), "html", null, true);
@@ -303,6 +305,6 @@ class __TwigTemplate_613e678ba5913ed1ab01cede30669b5c271c51e3c2d3b4b7b94f630bfbb
 
     public function getDebugInfo()
     {
-        return array (  291 => 128,  284 => 123,  278 => 122,  267 => 120,  262 => 119,  258 => 118,  251 => 113,  247 => 111,  235 => 105,  229 => 102,  222 => 98,  218 => 97,  215 => 96,  211 => 95,  206 => 92,  204 => 91,  199 => 88,  191 => 83,  187 => 82,  183 => 81,  179 => 80,  171 => 74,  169 => 73,  164 => 70,  159 => 68,  155 => 67,  151 => 66,  147 => 65,  142 => 64,  140 => 63,  130 => 55,  124 => 54,  119 => 52,  113 => 48,  107 => 45,  104 => 44,  101 => 43,  98 => 41,  92 => 38,  89 => 37,  87 => 36,  80 => 34,  77 => 33,  71 => 31,  69 => 30,  64 => 27,  62 => 26,  59 => 25,  56 => 24,  51 => 23,  48 => 21,  46 => 20,  43 => 19,  41 => 18,  39 => 17,  22 => 2,  19 => 1,);
+        return array (  293 => 128,  286 => 123,  280 => 122,  269 => 120,  264 => 119,  260 => 118,  253 => 113,  249 => 111,  237 => 105,  231 => 102,  224 => 98,  220 => 97,  217 => 96,  213 => 95,  208 => 92,  206 => 91,  201 => 88,  193 => 83,  187 => 82,  183 => 81,  179 => 80,  171 => 74,  169 => 73,  164 => 70,  159 => 68,  155 => 67,  151 => 66,  147 => 65,  142 => 64,  140 => 63,  130 => 55,  124 => 54,  119 => 52,  113 => 48,  107 => 45,  104 => 44,  101 => 43,  98 => 41,  92 => 38,  89 => 37,  87 => 36,  80 => 34,  77 => 33,  71 => 31,  69 => 30,  64 => 27,  62 => 26,  59 => 25,  56 => 24,  51 => 23,  48 => 21,  46 => 20,  43 => 19,  41 => 18,  39 => 17,  22 => 2,  19 => 1,);
     }
 }

@@ -43,7 +43,7 @@ class PersonalTutor
         }
         $this->name = $name;
         // The tutor photo
-        $this->photo = "http://ih0.redbubble.net/image.13984018.5914/flat,550x550,075,f.u2.jpg";
+        $this->photo = "http://www.imcslc.ca/imc/includes/themes/imc/images/layout/img_placeholder_avatar.jpg";
         // The tutor phone
         $this->telephone = "";
         // The tutor job title
