@@ -12,12 +12,8 @@ class FilesCollection
     {
         // Get the current app instance
         $app = \Slim\Slim::getInstance();
-
-        
         $baseUrl = Config::read('records.vle');
         $url = $baseUrl . $courseCode .'.json';
-        k($url);
-
         $this->loadFiles($url);
         $this->processFiles($this->files);
     }
@@ -29,7 +25,6 @@ class FilesCollection
     // Private Functions
     private function loadFiles($url)
     {
-        k($url);
         // Get Json from Sharepoint API (Fake url @ present)
         $jsonUrl = $url;
         // Get a JSON API

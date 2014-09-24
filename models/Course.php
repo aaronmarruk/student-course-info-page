@@ -34,25 +34,15 @@ class Course
         // Returns moodle config object
         $user = $app->user;
         $ldapUserName = $user->getLdapUserName();
-        echo "This is ldapuserName";
-        k($ldapUserName);
         $userId = $user->getId();
         $this->courseData = $this->loadCourseData(
             $ldapUserName,
             Config::read('records.sits')
         );
-        echo "This is courseData";
-        k($this->courseData);
         $this->courseName = $this->courseData["course"]["coursename"];
         $this->courseCode = $this->courseData["course"]["coursecode"];
         $this->loadWelcomeMsg($this->courseData);
         $this->loadCollections($moodle, $user, $this->courseCode);
-        echo "this is the files collection";
-        k($this->filesCollection);
-        echo "this is the readingsCollection";
-        k($this->readingsCollection);
-        echo "this is the moduleCollection";
-        k($this->moduleCollection);
     }
     // Private functions
     private function getJsonData($url)

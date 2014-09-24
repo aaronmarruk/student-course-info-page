@@ -214,3 +214,7 @@
 body{
 	padding-top: 70px;
 }
+
+#wrapper{
+	min-height: initial;
+}
