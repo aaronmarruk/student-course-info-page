@@ -169,7 +169,7 @@ class __TwigTemplate_613e678ba5913ed1ab01cede30669b5c271c51e3c2d3b4b7b94f630bfbb
         if (($this->getAttribute((isset($context["personalTutor"]) ? $context["personalTutor"] : null), "name") != null)) {
             // line 74
             echo "    <h1 id=\"section--personal-tutor\">Personal Tutor</h1>
-    <p>Your personal tutor is whatever...</p>
+    <p>Your personal tutor is who you should contact if you need to speak to somebody regarding course matters.</p>
     <ul class=\"contact-cards\">
       <li class=\"contact-cards__card\">
         <ul class=\"contact-cards__details\">

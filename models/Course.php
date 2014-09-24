@@ -39,10 +39,14 @@ class Course
             $ldapUserName,
             Config::read('records.sits')
         );
+        echo "<br /><br /><br />";
+        k($this->courseData);
         $this->courseName = $this->courseData["course"]["coursename"];
         $this->courseCode = $this->courseData["course"]["coursecode"];
-        $this->loadWelcomeMsg($this->courseData);
+        $this->loadWelcomeMsg($this->courseCode);
         $this->loadCollections($moodle, $user, $this->courseCode);
+
+
     }
     // Private functions
     private function getJsonData($url)
@@ -67,30 +71,34 @@ class Course
             $this->moduleCollection->getModules()
         );
     }
-    private function loadWelcomeMsg($courseData)
+    private function loadWelcomeMsg($courseCode)
     {
+        $baseUrl =  Config::read('records.vle');
+        $jsonData = $this->getJsonData(
+            $baseUrl.$courseCode.".json"
+        );
+        
         // Get the welcome info, including course leader details
-        if (isset($courseData["welcome"]["message"])) {
+        if (isset($jsonData["welcome"]["message"])) {
             $this->welcomeMessage = $courseData["welcome"]["message"];
         } else {
             $this->welcomeMessage = null;
         }
-        if (isset($courseData["welcome"]["name"])) {
+        if (isset($jsonData["welcome"]["name"])) {
             $this->welcomeName = $courseData["welcome"]["name"];
         } else {
             $this->welcomeName = null;
         }
-        if (isset($courseData["welcome"]["photo"])) {
+        if (isset($jsonData["welcome"]["photo"])) {
             $this->welcomePhoto = $courseData["welcome"]["photo"];
         } else {
             $this->welcomePhoto = null;
         }
-        if (isset($courseData["welcome"]["title"])) {
+        if (isset($jsonData["welcome"]["title"])) {
             $this->welcomeJobtitle = $courseData["welcome"]["title"];
         } else {
             $this->welcomeJobtitle = null;
         }
-        
     }
     private function loadCourseData($ldapUserName, $baseUrl)
     {
