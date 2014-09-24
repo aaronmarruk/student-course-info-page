@@ -198,19 +198,8 @@
 	margin-left: 0;
 	list-style: none;
 }
-           
-.pagelayout-frontpage #region-pre {
-	width: 33%;
-	float: left;
-	margin-left: -1px;
-	border-top: 1px solid #d5d7d8;
-	border-left: 1px solid #d5d7d8;
-	background: none;
-	margin-top: -19px;
-	padding-top: 23px;
-	padding-bottom: 4em;
-}
 
+/* Responsive google form */
 .google-form {
     position: relative;
     padding-bottom: 90%; // (450 ÷ 500 = 0.9 = 90%)
@@ -225,6 +214,26 @@
     height: 100%;
 }
 
+
+/* Learning Space theme overrides */
 #wrapper{
 	min-height: initial;
+}
+
+/* Side bar stylings */
+.pagelayout-frontpage #region-pre {
+	width: 33%;
+	float: left;
+	margin-left: -1px;
+	border-top: 1px solid #d5d7d8;
+	border-left: 1px solid #d5d7d8;
+	background: none;
+	margin-top: -19px;
+	padding-top: 23px;
+	padding-bottom: 4em;
+}
+
+/* Sidebar search form */ 
+#coursesearch3 {
+	margin-top: -20px;
 }

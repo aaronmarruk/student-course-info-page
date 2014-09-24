@@ -23,6 +23,10 @@ class __TwigTemplate_ec465c590ee8d7c7dfcb49d17a8162d3264526c468450d8c8922f578e83
       </section>
 
       <aside id=\"region-pre\" class=\"span4 block-region region-content\">
+        <form id=\"coursesearch3\" action=\"";
+        // line 8
+        echo twig_escape_filter($this->env, (isset($context["siteRoot"]) ? $context["siteRoot"] : null), "html", null, true);
+        echo "/course/search.php\" method=\"get\"><fieldset class=\"coursesearchbox invisiblefieldset\"><input type=\"text\" id=\"coursesearchbox\" size=\"30\" name=\"search\" value=\"\" placeholder=\"Search modules...\"><input type=\"submit\" value=\"Go\"></fieldset></form>
           <!-- <div id=\"inst1290\" class=\"block_section  block list_block\" role=\"complementary\" aria-labelledby=\"instance-1290-header\">
             <div class=\"header\">
               <div class=\"title\" id=\"yui_3_7_3_2_1410273634501_217\">
@@ -82,19 +86,19 @@ class __TwigTemplate_ec465c590ee8d7c7dfcb49d17a8162d3264526c468450d8c8922f578e83
 </footer>
 <!-- End of body html -->
 <script type=\"text/javascript\" src=\"";
-        // line 66
+        // line 67
         echo twig_escape_filter($this->env, (isset($context["scip"]) ? $context["scip"] : null), "html", null, true);
         echo "/public/js/jquery-1.8.2.min.js\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 67
+        // line 68
         echo twig_escape_filter($this->env, (isset($context["scip"]) ? $context["scip"] : null), "html", null, true);
         echo "/public/js/jquery.sidr.min.js\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 68
+        // line 69
         echo twig_escape_filter($this->env, (isset($context["scip"]) ? $context["scip"] : null), "html", null, true);
         echo "/public/js/ls-footer.js\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 69
+        // line 70
         echo twig_escape_filter($this->env, (isset($context["scip"]) ? $context["scip"] : null), "html", null, true);
         echo "/public/js/bootstrap.js\"></script>
 <script type=\"text/javascript\">
@@ -118,6 +122,6 @@ class __TwigTemplate_ec465c590ee8d7c7dfcb49d17a8162d3264526c468450d8c8922f578e83
 
     public function getDebugInfo()
     {
-        return array (  98 => 69,  94 => 68,  90 => 67,  86 => 66,  19 => 1,);
+        return array (  102 => 70,  98 => 69,  94 => 68,  90 => 67,  28 => 8,  19 => 1,);
     }
 }
