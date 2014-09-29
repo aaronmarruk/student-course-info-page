@@ -27,56 +27,57 @@
 
       <li class="module-list__module">
 
-        {% if module.idnumber != "" %}
+        <!-- {% if module.idnumber != "" %}
           <h5 class="module-list__code badge">{{ module.idnumber }}</h5>
-        {% endif %}
+        {% endif %} -->
 
-        <h1 class="module-list__title"><a href="{{ siteRoot ~ '/course/view.php?id=' ~ module.id }}">{{ module.readableName }}</a></h2>
+        <h1 class="module-list__title"><a href="{{ siteRoot ~ '/course/view.php?id=' ~ module.id ~ '&section=1'}}">{{ module.readableName }}</a></h2>
         
         {% if module.summary != "" %}
         <p class="module-list__item-desc">
           {{ module.summary }}
         </p>
         {% endif %}
-
         {# if there is a reading list for this module #}
         {% if readingLists[module.readableName][0].name != "" %}
-          
           <a class="module-list__readings-link" href="{{ readingLists[module.readableName][0].url }}"><span><i class="fa fa-book"></i> Reading list</span></a>
-
         {% endif %}
-           
       </li>
-    
     {% else %}
       {# Do nothing #}    
     {% endif %}
   {% endfor %}
-</ul>
+  </ul>
 <!-- END My Modules -->
-  </div>
-
-
+</div>
 
   <div class="tab-pane" id="course-information">
     <!-- Welcome -->
     {% if courseWelcome != "" %}
     <h1>{{ courseName }}</h1>
-    <p>{{ courseWelcome }}</p>
-    <img src="{{ courseWelcomePhoto }}">
-    <p>{{ courseWelcomeName }}</p>
-    <p>{{ courseWelcomeJobTitle }}</p>
+    <p>{{ courseWelcome|nl2br }}</p>
+    <!-- <img src="{{ courseWelcomePhoto }}"> -->
+    <p class="welcome-message__name">{{ courseWelcomeName }}</p>
+    <p class="welcome-message__job">{{ courseWelcomeJobTitle }}</p>
+    {% endif %}
+
+    {% if courseWelcome == "" %}
+    <h1>{{ courseName }}</h1>
+    <p>Welcome to {{ courseName }}</p>
+    <!-- <img src="{{ courseWelcomePhoto }}"> -->
+    <p class="welcome-message__name">{{ courseWelcomeName }}</p>
+    <p class="welcome-message__job">{{ courseWelcomeJobTitle }}</p>
     {% endif %}
     <!-- END Welcome -->
     
     <!-- Contacts -->
     {% if personalTutor.name != null %}
-    <h1 id="section--personal-tutor">Personal Tutor</h1>
-    <p>Your personal tutor is who you should contact if you need to speak to somebody regarding course matters.</p>
+    <h1 id="section--personal-tutor">Your Personal Tutor</h1>
+    <p>As part of your student journey, you have been allocated the following Personal Tutor, who will be able to provide support beyond regular academic contact.</p>
     <ul class="contact-cards">
       <li class="contact-cards__card">
         <ul class="contact-cards__details">
-          <li class="contact-cards__pic"></li>
+          <li class="contact-cards__avatar"><img id="profile-popover" class="contact-cards__img" src="{{ personalTutor.photo }}" /></li>
           <li class="contact-cards__text"><h3>{{ personalTutor.name }}</h3></li>
           <li class="contact-cards__text"><strong>{{ personalTutor.jobTitle }}</strong></li>
           <li class="contact-cards__text"><a href="mailto:{{ personalTutor.email }}">{{ personalTutor.email }}</a></li>
@@ -84,6 +85,15 @@
         </ul>
       </li>
     </ul>
+
+    <!-- Popover 2 hidden content -->
+    <div id="popoverExampleTwoHiddenContent" style="display: none">
+      <div><p>Profile pictures are coming soon. For more information please visit the <a href="#">Educational Technology blog</a></p></div>
+    </div>  
+    <!-- Popover 2 hidden title -->
+    <div id="popoverExampleTwoHiddenTitle" style="display: none">
+    Popover Example <b>2</b> - Title
+    </div> 
     {% endif %}
     <!-- END Contacts -->
 
@@ -93,21 +103,32 @@
     <p>Below you will find important documents relating to your course</p>
     <ul class="files-list">
       {% for file in files %}
+      {% if file.type != "Award Document" %}
       <li class="files-list__file">
-        <a class="files-list__file-link" href="{{ file.link }}">
-        <p class="files-list__file-title"><small>{{ file.title }}</small></p>
-        <i class="files-list__icon fa fa-cloud-download"></i>
-      <!-- <ul class="files-list__file-meta">
-        <li>
-        {{ file.size }}
-        </li>
-        <li>
-        {{ file.ext }}
-        </li>
-      </ul> -->
-      </a>
+        <a class="files-list__file-link" href="{{ file.link }}" download>
+          <p class="files-list__file-title"><small>{{ file.type }}</small></p>
+          <i class="files-list__icon fa fa-cloud-download"></i>
+        </a>
       </li>
+      {% endif %}
+      
       {% endfor %}
+      <li class="files-list__file">
+        <a data-toggle="dropdown" class="files-list__file-link" href="#">
+        <p class="files-list__file-title"><small>Award Document</small></p>
+        <i class="files-list__icon fa fa-cloud-download"></i>
+        
+      </a>
+      <ul class="dropdown-menu">
+          <li role="presentation" class="dropdown-header">What year did you start your course?</li>
+          <li class="divider"></li>
+          {% for file in files %}
+          {% if file.type == "Award Document" %}
+          <li><a href="{{ file.link }}" download>{{ file.year }}</a></li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </li>
     </ul>
     {% endif %}
     <!-- END Files -->

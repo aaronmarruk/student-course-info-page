@@ -6,6 +6,62 @@
 
       <aside id="region-pre" class="span4 block-region region-content">
         <form id="coursesearch3" action="{{ siteRoot }}/course/search.php" method="get"><fieldset class="coursesearchbox invisiblefieldset"><input type="text" id="coursesearchbox" size="30" name="search" value="" placeholder="Search modules..."><input type="submit" value="Go"></fieldset></form>
+        <div id="inst6438" class="block_html  block" role="complementary" aria-labelledby="instance-6438-header"><div class="header"><div class="title" id="yui_3_7_3_2_1411988522352_73"><div class="block_action"><img class="block-hider-hide" tabindex="0" alt="Hide Browse by school block" title="Hide Browse by school block" src="http://learningspace.falmouth.ac.uk/theme/image.php/learningspace/core/1404808774/t/switch_minus"><img class="block-hider-show" tabindex="0" alt="Show Browse by school block" title="Show Browse by school block" src="http://learningspace.falmouth.ac.uk/theme/image.php/learningspace/core/1404808774/t/switch_plus"></div><h2 id="instance-6438-header">Browse by school</h2></div></div><div class="content"><div class="no-overflow"><div class="box generalbox categorybox">
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=101">The Academy of Music &amp; Theatre Arts</a></div>
+<div class="clearfloat"></div>
+</div>
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=104">The Falmouth School of Art</a></div>
+<div class="clearfloat"></div>
+</div>
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=99">The Fashion &amp; Textiles Institute </a></div>
+<div class="clearfloat"></div>
+</div>
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=102">The Institute of Photography</a></div>
+<div class="clearfloat"></div>
+</div>
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=105">The School of Communication Design</a></div>
+<div class="clearfloat"></div>
+</div>
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=100">The School of Film &amp; Television</a></div>
+<div class="clearfloat"></div>
+</div>
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=103">The School of Writing &amp; Journalism</a></div>
+<div class="clearfloat"></div>
+</div>
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=162">Sustainable Design Research Centre</a></div>
+<div class="clearfloat"></div>
+</div>
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=149">The Graduate School</a><span title="Number of courses" class="numberofcourse">&nbsp;</span></div>
+<div class="category"><span title="Number of courses" class="numberofcourse"></span></div>
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=185"><span title="Number of courses" class="numberofcourse">Business School</span></a></div>
+<div class="clearfloat"></div>
+</div>
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=75">Falmouth Award</a><span title="Number of courses" class="numberofcourse">&nbsp;</span></div>
+<div class="clearfloat"></div>
+</div>
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=86">Resource Centres</a></div>
+<div class="clearfloat"></div>
+</div>
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=52">Technicians&nbsp;</a></div>
+<div class="clearfloat"></div>
+</div>
+<div class="categorylist">
+<div class="category"><a href="http://learningspace.falmouth.ac.uk/course/category.php?id=1">Miscellaneous</a><span title="Number of courses" class="numberofcourse">&nbsp;</span></div>
+<div class="clearfloat"></div>
+</div>
+</div></div></div></div>
           <!-- <div id="inst1290" class="block_section  block list_block" role="complementary" aria-labelledby="instance-1290-header">
             <div class="header">
               <div class="title" id="yui_3_7_3_2_1410273634501_217">
@@ -55,10 +111,11 @@
         <li><a href="http://www.falmouth.ac.uk/term-dates-201314">Term Dates</a></li>
         <li><a href="http://et.falmouth.ac.uk">Help</a></li>
         <li><a href="falmouth.ac.uk">Educational Technology</a></li>
+        <li><a href="http://www.falmouth.ac.uk/studentregulations">Student Regulations</a></li>
       </ul>
     </div>
     <span id="credits">
-      <small>Lovingly crafted by <a href="http://et.falmouth.ac.uk">Educational Technology</a>. &copy; University College Falmouth. All rights reserved.</small>
+      <small>Lovingly crafted by <a href="http://et.falmouth.ac.uk">Educational Technology</a>. &copy; Falmouth University. All rights reserved.</small>
     </span>
     <a id="fal-logo" href="http://falmouth.ac.uk/"></a>
   </div>
@@ -70,8 +127,25 @@
 <script type="text/javascript" src="{{ scip }}/public/js/bootstrap.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#tabs').tab();
+      $('#tabs').tab();
+      $('#profile-popover').popover({
+        trigger : "hover",
+        html : true, 
+        content: function() {
+          return $('#popoverExampleTwoHiddenContent').html();
+        }
+      });
     });
 </script>  
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ ga('create', 'UA-7991839-14', 'auto');
+ ga('send', 'pageview');
+
+</script>
 </body>
 </html>

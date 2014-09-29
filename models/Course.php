@@ -39,23 +39,22 @@ class Course
             $ldapUserName,
             Config::read('records.sits')
         );
-        echo "<br /><br /><br />";
-        k($this->courseData);
         $this->courseName = $this->courseData["course"]["coursename"];
         $this->courseCode = $this->courseData["course"]["coursecode"];
         $this->loadWelcomeMsg($this->courseCode);
         $this->loadCollections($moodle, $user, $this->courseCode);
-
-
     }
     // Private functions
     private function getJsonData($url)
     {
+        
         // Accepts a url with which to make an api call
         // Returns PHP array – i.e
         $api = new JsonApi();
+        
         // Get json data by passing in url
         $data = $api->getJson($url);
+        
         return $data;
     }
     private function loadCollections($moodle, $user, $courseCode)
@@ -71,13 +70,19 @@ class Course
             $this->moduleCollection->getModules()
         );
     }
+    private function isValid($str)
+    {
+        $newstr = preg_replace('/[^\da-z]/i', '', $str);
+        return !preg_match('/[^A-Za-z0-9.#\\-$]/', $newstr);
+        
+    }
     private function loadWelcomeMsg($courseCode)
     {
         $baseUrl =  Config::read('records.vle');
         $jsonData = $this->getJsonData(
             $baseUrl.$courseCode.".json"
         );
-        
+
         // Get the welcome info, including course leader details
         if (isset($jsonData["welcome"]["message"])) {
             $this->welcomeMessage = $jsonData["welcome"]["message"];
@@ -95,7 +100,7 @@ class Course
             $this->welcomePhoto = null;
         }
         if (isset($jsonData["welcome"]["title"])) {
-            $this->welcomeJobtitle = $jsonData["welcome"]["title"];
+            $this->welcomeJobTitle = $jsonData["welcome"]["title"];
         } else {
             $this->welcomeJobtitle = null;
         }

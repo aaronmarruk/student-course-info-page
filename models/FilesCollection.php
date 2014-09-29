@@ -45,6 +45,7 @@ class FilesCollection
     {
         // Iterator for files array
         $filesIterator = 0;
+        $year = 2012;
         if ($files) {
             // for each course in the courselist
             foreach ($files as $file) {

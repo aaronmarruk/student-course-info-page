@@ -29,6 +29,7 @@ $app->get('/', function () use ($app) {
     // hint, user is an app singleton
     $course = new models\Course($user, $moodle);
     // Create params array to pass into view
+
     $params = [
         "modules" => $course->getModules(),
         "siteRoot" => Config::read('site.root'),
